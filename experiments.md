@@ -1,3 +1,5 @@
+text-> trad qwen3-8b <-> cloude opus 4 <-> baidu <-> google translate
+
 # 1) 北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。北京故宫以三大殿为中心，占地面积 72 万平方米，建筑面积约 15 万平方米，有大小宫殿七十多座，房屋九千余间。是世界上现存规模最大、保存最为完整的木质结构古建筑之一。故宫博物院是一座特殊的博物馆，成立于 1925 年，建立在紫禁城的基础上。近几年，在人们头脑中陈旧甚至略微显得古板的故宫开始活跃起来。一部《我在故宫修文物》让普通人了解到故宫背后的工匠精神，《  国家宝藏》恢弘的气势与现代科技结合，让人们见识到大国风范。故宫文创，依托悠久的故宫历史，发掘新的产品形态，将古老与现代结合，将历史与商业叠加。故宫口红，故宫项链，故宫台历等等，被人们广为使用。
 
 qw3 :{
@@ -538,3 +540,116 @@ qw3 expllainations were only in chinese => ft
 # SYSTEM PROMPT FOR THESE 8
 
 You are an expert translator, you will receive text in a JSON format that must be translated and explained. Identify the most challanging structures in the given sentence and respond with an explaination and a whole text translation. The input JSON format is the following '{"input_text":"<text_here>"}'. The output JSON format is the following '{"translated_text":"<translated_text", "explainations_list": [...]}". Respond with only the valid JSON and only the valid JSON, do not output any other strings.
+
+i refined the prompt so that my model will respond better to the input data, also will add more explainations and format the accordingly.
+
+# NEW SYSTEM PROMPT
+
+You are an expert translator and language analyst. You will receive text in a JSON format that must be translated and explained. Your task is to:
+
+1. Produce a complete, fluent translation of the entire input text.
+2. Identify and explain:
+   - The most challenging grammatical structures (e.g. verb tenses, clause structures, agreement, word order, subordination, complex sentences), and
+   - The most challenging or hard-to-understand phrases/expressions (e.g. idioms, collocations, ambiguous phrases, fixed expressions).
+
+The input JSON format is:
+{"input_text": "<text_here>"}
+
+You must respond with a single JSON object in the following format:
+{
+"translated_text": "<translated_text>",
+"explainations_list": [
+["<challenging_part_1>", "<explanation_1>"],
+["<challenging_part_2>", "<explanation_2>"]
+]
+}
+
+Where:
+
+- "translated_text" is the complete, fluent translation of the entire "input_text".
+- "explainations_list" is a list of tuples (2-element arrays):
+  - The first element is a challenging part taken directly from "input_text". This can be either:
+    - a grammatical structure (clause, verb group, sentence fragment, etc.), or
+    - a phrase/expression that is hard to understand or translate literally.
+  - The second element is a clear explanation (in the target language) that:
+    - for grammatical structures: describes the relevant grammar (e.g. tense, aspect, mood, syntax, agreement, clause type) and how it affects meaning;
+    - for phrases/expressions: explains the intended meaning, why it is challenging (idiomatic, ambiguous, non-literal, etc.), and how that meaning is captured in the translation.
+
+Important rules:
+
+- Cover both types of difficulties: grammar AND challenging phrases/expressions whenever they are present.
+- Focus explanations on what makes each selected part non-trivial to understand or translate.
+- Respond with only the valid JSON and only the valid JSON.
+- Do not output any other strings, comments, or messages outside the JSON.
+- Ensure the JSON is syntactically valid (double quotes for all keys and string values, no trailing commas).
+
+# text1
+
+香港长和实业将出售巴拿马运河港口予美国企业
+一家香港公司已同意出售其在巴拿马运河两个重要港口的大部分股份，买方为美国投资公司贝莱德（BlackRock）牵头的财团。
+此次出售前，美国总统特朗普连续数周批评巴拿马运河“受中国控制”，并声称美国应该重新掌控这条重要航运通道。
+长江和记实业（CK Hutchison Holdings）通过旗下子公司经营着位于巴拿马运河大西洋和太平洋两侧的港口。
+该公司周二（3 月 4 日）宣布，将以总价 228 亿美元（1654 亿元人民币；7474 亿元新台币；1770 亿港元）出售其相关资产。
+中国未正面回应长和出售港口决定
+香港长和实业公布出售包括巴拿马在内的港口业务后，中国外交部发言人林剑 5 日被问及北京对此有何看法。
+林剑说：“中方支持巴拿马对运河的主权，致力于维护运河作为永久中立的国际通行水道地位。中方从未参与运河的管理运营，从不插手运河事务，所谓中国控制运河完全是谎言。”
+但林剑未正面评论长和实业的决定。他说：“我们对有关商业交易不予评论。此前，香港特区政府已就有关香港公司运营有关港口问题作了回应。”
+“作为原则，我想强调，中方支持包括香港特区企业在内的本国企业赴海外投资兴业，各国都应为相关企业提供公平公正的环境，我们反对在国际经贸关系中滥施胁迫施压手段。”
+香港特区政府曾于 2 月份发稿，指责美国国务卿马可·卢比奥（Marco Rubio）有关巴拿马运河运营的言论“亳无道理及歪曲事实”。
+一名发言人强调，香港是中国“不可分离的部分”，同时称：“所有在港注册的公司均需按香港法例及当地法规营运，特区政府从无干预香港公司的商业营运。”
+长江和记实业由香港亿万富翁李嘉诚创立，并不属于中国政府所有，但其总部位于香港，仍需遵守中国的金融法规。自 1997 年以来，该公司一直负责这些港口的运营。
+该交易涵盖全球 23 个国家的 43 个港口，其中包括这两个运河码头。交易仍需获得巴拿马政府的批准。
+巴拿马运河全长 51 英里（82 公里），横贯中美洲，是连接大西洋与太平洋的主要航道。
+每年约 14,000 艘船只通过该运河，其中包括运载汽车、天然气和其他商品的货柜船，以及军舰。
+这条运河建于 20 世纪初，美国在 1977 年签署条约，开始逐步将运河区的控制权归还给巴拿马。
+经过一段时间的共同管理，巴拿马在 1999 年正式完全接管运河。
+特朗普曾多次主张美国应重新控制该运河及其周边地区，理由包括：中国的影响力构成国家安全威胁、美国最初投资建造运河应有权重新掌控，以及美国船只使用运河的费用过高。
+今年 2 月访问巴拿马时，美国国务卿卢比奥要求该国“立即改变”中国对运河的“影响与控制”。
+然而，巴拿马政府驳回了美方的说法，总统荷西·劳尔·穆利诺（José Raúl Mulino）表示，巴拿马运河“属于并将继续属于”这个中美洲国家。
+在宣布这项交易的声明中，长和联席董事总经理陆法兰（Frank Sixt）强调：“这笔交易纯粹是商业决策，与近期有关巴拿马港口的政治新闻毫无关联。”
+贝莱德是全球最大的资产管理公司之一，参与收购的财团还包括瑞士的码头投资有限公司（Terminal Investment Limited）。
+
+qwen 3: {
+"translated_text": "Hong Kong's CK Hutchison Holdings to Sell Panama Canal Ports to U.S. Firms\nA Hong Kong company has agreed to sell its majority stake in two key ports on the Panama Canal to a consortium led by U.S. investment firm BlackRock. Before this sale, U.S. President Trump had criticized the Panama Canal as being 'controlled by China' for several weeks, claiming the U.S. should reclaim control of this vital shipping route. CK Hutchison Holdings, through its subsidiaries, operates ports on both sides of the Panama Canal. The company announced on Tuesday (March 4) that it would sell its related assets for a total of $22.8 billion (165.4 billion RMB; 747.4 billion NT; 177 billion HKD).\nChina Did Not Directly Respond to CK Hutchison's Sale Decision\nAfter Hong Kong's CK Hutchison Holdings announced the sale of its port business including Panama, Chinese Foreign Ministry spokesperson Lin Jian was asked about Beijing's stance on the matter on the fifth day. Lin Jian stated, 'China supports Panama's sovereignty over the canal and is committed to maintaining the canal's status as a permanently neutral international waterway. China has never participated in the management or operations of the canal and has never interfered in canal affairs. The claim that China controls the canal is entirely false.' However, Lin Jian did not directly comment on CK Hutchison's decision. He said, 'We do not comment on commercial transactions. Previously, the Hong Kong Special Administrative Region government had already responded to the issue of Hong Kong companies operating these ports.'\n'As a principle, I want to emphasize that China supports the investment of its enterprises, including those from the Hong Kong Special Administrative Region, in overseas markets. All countries should provide fair and just environments for related enterprises. We oppose the use of coercion and pressure in international economic and trade relations.'\nThe Hong Kong Special Administrative Region government had previously issued a statement in February, criticizing U.S. Secretary of State Marco Rubio's remarks on the Panama Canal's operations as 'baseless and distorting facts.' A spokesperson emphasized that Hong Kong is an 'inseparable part' of China and stated, 'All companies registered in Hong Kong must operate according to Hong Kong's laws and local regulations. The Hong Kong Special Administrative Region government has never interfered with the commercial operations of Hong Kong companies.'\nCK Hutchison Holdings, founded by Hong Kong billionaire Li Ka-shing, is not owned by the Chinese government but is headquartered in Hong Kong and must comply with China's financial regulations. Since 1997, the company has been responsible for operating these ports. The transaction covers 43 ports in 23 countries worldwide, including these two canal terminals. The deal still requires approval from the Panama government.\nThe Panama Canal is 51 miles (82 kilometers) long, spanning Central America, and is the main shipping route connecting the Atlantic and Pacific. Approximately 14,000 ships pass through the canal annually, including cargo ships carrying cars, natural gas, and other goods, as well as warships. The canal was built in the early 20th century, and the U.S. began gradually returning control of the canal zone to Panama through a treaty signed in 1977. After a period of joint management, Panama formally took full control of the canal in 1999.\nTrump has repeatedly advocated for the U.S. to reclaim control of the canal and its surrounding areas, citing reasons such as China's influence posing a national security threat, the U.S. having the right to reclaim control as the original investor, and the high costs for U.S. ships using the canal. During a February visit to Panama, U.S. Secretary of State Rubio demanded that the country 'immediately change' China's 'influence and control' over the canal. However, the Panama government rejected the U.S. claims, with President José Raúl Mulino stating, 'The Panama Canal belongs to and will continue to belong to this Central American country.'\nIn the statement announcing the transaction, CK Hutchison's joint chief executive officer Frank Sixt emphasized, 'This transaction is purely a commercial decision and has no connection with the recent political news regarding the Panama ports.' BlackRock is one of the world's largest asset management companies, and the acquiring consortium also includes Swiss Terminal Investment Limited.",
+"explainations_list": [
+["美国总统特朗普连续数周批评巴拿马运河‘受中国控制’", "This sentence contains a nested quotation structure, where the President's criticism of the canal being 'controlled by China' is presented as a direct quote. The Chinese structure uses a quote within a quote, which requires careful handling to preserve the meaning and speaker attribution in English while maintaining clarity."],
+["中国未正面回应长和出售港口决定", "This phrase uses a complex clause structure where the main clause '中国未正面回应' (China did not directly respond) is followed by a subordinate clause explaining the context. The translation must accurately reflect the relationship between the main action and the reason, maintaining the nuance of indirect response without explicit comment."],
+["不可分离的部分", "This idiomatic expression refers to Hong Kong's status as an inseparable part of China. It is a politically sensitive phrase that requires precise translation to convey the official stance without ambiguity, as it carries significant legal and political implications."],
+["全球最大资产管理公司之一", "This collocation uses the superlative '全球最大' (world's largest) with the noun '资产管理公司' (asset management company). The translation must maintain the specific financial industry terminology while ensuring the superlative degree is correctly conveyed in English."],
+["美国船只使用运河的费用过高", "This phrase contains a complex noun phrase where '费用' (cost) is modified by '使用运河的' (for using the canal) and further specified by '美国船只' (U.S. ships). The translation must preserve the hierarchical structure of the noun phrase to accurately reflect the cost concern for U.S. ships."],
+["永久中立的国际通行水道", "This fixed expression describes the legal status of the Panama Canal as a permanently neutral international waterway. The translation must retain the precise legal terminology to accurately reflect the international law context and the canal's designated status."],
+["共同管理", "This phrase refers to a period of joint management between the U.S. and Panama. The translation must capture the specific historical context of shared governance, which is a key point in the canal's ownership history."],
+["滥施胁迫施压手段", "This idiomatic expression translates to 'the use of coercion and pressure in international economic and trade relations.' The translation must preserve the figurative meaning of '滥施' (excessive use of) while maintaining the political context of international relations."],
+["不可分离的部分", "This phrase is repeated in the text to emphasize Hong Kong's status as an inseparable part of China. The translation must maintain the repetition and the precise political terminology to convey the official stance accurately."],
+["重申主权", "This expression refers to reaffirming sovereignty, a key legal concept in international relations. The translation must accurately reflect the legal and political significance of '重申' (reaffirm) in the context of territorial control."]
+]
+}
+
+cl4:
+{
+"translated_text": "Hong Kong's CK Hutchison to Sell Panama Canal Ports to US Companies\n\nA Hong Kong company has agreed to sell most of its shares in two major ports on the Panama Canal to a consortium led by US investment firm BlackRock.\n\nThe sale comes after weeks of criticism from US President Trump, who claimed the Panama Canal is \"controlled by China\" and that the US should regain control of this vital shipping route.\n\nCK Hutchison Holdings operates ports on both the Atlantic and Pacific sides of the Panama Canal through its subsidiaries.\n\nThe company announced on Tuesday (March 4) that it would sell its related assets for a total price of $22.8 billion (165.4 billion RMB; 747.4 billion TWD; 177 billion HKD).\n\nChina Does Not Directly Respond to CK Hutchison's Decision to Sell Ports\n\nWhen asked about Beijing's view on CK Hutchison's announcement to sell port operations including those in Panama, Chinese Foreign Ministry spokesperson Lin Jian responded on the 5th.\n\nLin Jian said: \"China supports Panama's sovereignty over the canal and is committed to maintaining the canal's status as a permanently neutral international waterway. China has never participated in the canal's management and operations, never interferes in canal affairs, and the so-called Chinese control of the canal is a complete lie.\"\n\nHowever, Lin Jian did not directly comment on CK Hutchison's decision. He said: \"We do not comment on commercial transactions. Previously, the Hong Kong SAR government has already responded regarding Hong Kong companies operating relevant ports.\"\n\n\"As a matter of principle, I want to emphasize that China supports its domestic enterprises, including Hong Kong SAR enterprises, investing and doing business overseas. All countries should provide a fair and just environment for relevant enterprises. We oppose the abuse of coercive and pressure tactics in international economic and trade relations.\"\n\nThe Hong Kong SAR government issued a statement in February, criticizing US Secretary of State Marco Rubio's remarks about Panama Canal operations as \"unreasonable and distorting facts.\"\n\nA spokesperson emphasized that Hong Kong is an \"inseparable part\" of China, while stating: \"All companies registered in Hong Kong must operate according to Hong Kong law and local regulations. The SAR government has never interfered in the commercial operations of Hong Kong companies.\"\n\nCK Hutchison was founded by Hong Kong billionaire Li Ka-shing and is not owned by the Chinese government, but as it is headquartered in Hong Kong, it must comply with Chinese financial regulations. The company has been operating these ports since 1997.\n\nThe transaction covers 43 ports in 23 countries worldwide, including the two canal terminals. The deal still requires approval from the Panamanian government.\n\nThe Panama Canal spans 51 miles (82 kilometers) across Central America and is the main waterway connecting the Atlantic and Pacific oceans.\n\nApproximately 14,000 vessels pass through the canal annually, including container ships carrying cars, natural gas, and other goods, as well as military vessels.\n\nThe canal was built in the early 20th century. The US signed a treaty in 1977 to begin gradually returning control of the canal zone to Panama.\n\nAfter a period of joint management, Panama officially took full control of the canal in 1999.\n\nTrump has repeatedly argued that the US should regain control of the canal and its surrounding areas, citing reasons including: China's influence poses a national security threat, the US's original investment in building the canal gives it the right to regain control, and the excessive fees charged to US vessels using the canal.\n\nDuring a visit to Panama in February this year, US Secretary of State Rubio demanded that the country \"immediately change\" China's \"influence and control\" over the canal.\n\nHowever, the Panamanian government rejected the US claims, with President José Raúl Mulino stating that the Panama Canal \"belongs to and will continue to belong to\" the Central American nation.\n\nIn the statement announcing the transaction, CK Hutchison's Co-Managing Director Frank Sixt emphasized: \"This transaction is purely a commercial decision and has no connection to recent political news regarding Panama's ports.\"\n\nBlackRock is one of the world's largest asset management companies. The consortium participating in the acquisition also includes Switzerland's Terminal Investment Limited.",
+"explanations_list": [
+{
+"structure": "长江和记实业（CK Hutchison Holdings）",
+"explanation": "This is the Chinese name of a major Hong Kong conglomerate. '长江' (Changjiang) literally means 'Yangtze River' and '和记' (Heji) means 'Hutchison'. The company's English name 'CK Hutchison' combines 'CK' (for Cheung Kong) and 'Hutchison'."
+},
+{
+"structure": "所谓中国控制运河完全是谎言",
+"explanation": "This phrase uses '所谓' (so-called) to express skepticism about the claim, followed by '完全是谎言' (is completely a lie). The structure emphasizes China's strong denial of the allegation."
+},
+{
+"structure": "亳无道理及歪曲事实",
+"explanation": "This parallel structure means 'unreasonable and distorting facts'. '亳无' (háo wú) is an emphatic form meaning 'completely without', and '歪曲' (wāiqū) means 'to distort' or 'twist'."
+},
+{
+"structure": "不可分离的部分",
+"explanation": "This phrase means 'inseparable part' and is a standard political formulation used by China when referring to Hong Kong's relationship with mainland China."
+},
+{
+"structure": "纯粹是商业决策",
+"explanation": "'纯粹' (chúncuì) means 'purely' or 'solely', emphasizing that the decision is exclusively business-related and not politically motivated."
+}
+]
+}
+
+#
