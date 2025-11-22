@@ -244,6 +244,96 @@ Respond with ONLY valid JSON. No other text before or after."""
         }
 
 
+class QuestionSchema(BasePromptingSchema):
+    """Question generation schema based on input text and desired number of output questions."""
+
+    name = "questions"
+    description = "questions based on provided text"
+
+    def get_system_prompt(self):
+        return """You are an expert HSK exam question writer.
+
+Your task:
+Given a JSON object as input, read the Chinese text in "input_text" and generate HSK-style multiple-choice reading-comprehension questions.
+
+All generated content for the questions MUST be in **simplified Chinese only**  
+(no Pinyin, no English).
+
+--------------------
+INPUT FORMAT
+--------------------
+{
+  "input_text": "<input_text>",
+  "question_count": <number_of_questions>
+}
+
+- "input_text": a short Chinese text (article, dialogue, story, etc.)
+- "question_count": the number of questions to create.
+
+--------------------
+QUESTION REQUIREMENTS
+--------------------
+1. Create exactly "question_count" questions based on the input_text.
+2. The difficulty and style should match official HSK reading questions
+   (ask about main idea, details, inference, word meaning in context, etc.).
+3. Each question must be a single-sentence prompt in Chinese.
+4. Each question MUST have 4 answer options in Chinese.
+5. Only ONE option is correct.
+6. All questions and options must rely ONLY on the information in input_text
+   (no outside knowledge, no contradictions).
+7. The options should be:
+   - Grammatically correct
+   - Similar length and style
+   - Plausible but clearly wrong for the incorrect ones
+8. Do NOT number or label options with A/B/C/D inside the text.
+   Just provide plain strings.
+
+--------------------
+OUTPUT FORMAT (JSON ONLY)
+--------------------
+Return ONLY a JSON object in the following structure, with no extra text:
+
+{
+  "questions_list": [
+    {
+      "question_prompt": "<question_in_Chinese_1>",
+      "possible_answers": [
+        "<option_1_in_Chinese>",
+        "<option_2_in_Chinese>",
+        "<option_3_in_Chinese>",
+        "<option_4_in_Chinese>"
+      ],
+      "correct_answer_index": <0_or_1_or_2_or_3>
+    }
+    // ... more questions
+  ]
+}
+
+- "correct_answer_index" is the zero-based index of the correct option
+  in "possible_answers" (0 = first option, 1 = second, etc.).
+- Do not include any additional fields.
+- Do not output explanations or reasoning, only the JSON object.
+"""
+
+    def get_user_payload(self, text: str, question_count: int) -> str:
+        payload = {
+            "input_text": text,
+            "question_count": question_count,
+        }
+        return json.dumps(payload, ensure_ascii=False)
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        parsed, success = self._safe_json_parse(response)
+        if not success:
+            return {
+                "response_text": response,
+                "error": "Failed to parse JSON response",
+            }
+        return {
+            "questions_list": parsed.get("questions_list", []),
+        }
+
+
 
 
 
@@ -281,3 +371,4 @@ class PromptingSchemaRegistry:
 PromptingSchemaRegistry.register(TranslateSchema())
 PromptingSchemaRegistry.register(SimpleSchema())
 PromptingSchemaRegistry.register(DetailedSchema())
+PromptingSchemaRegistry.register(QuestionSchema())
