@@ -146,6 +146,102 @@ Important rules:
         }
 
 
+class SimpleSchema(BasePromptingSchema):
+    """
+    Simple translation-only schema without explanations.
+    Fast and lightweight for basic translation needs.
+    """
+
+    name = "simple"
+    description = "Simple translation-only schema"
+
+    def get_system_prompt(self) -> str:
+        return """You are an expert translator. You will receive a JSON payload of the form {"input_text": "<text_here>"}. Translate the entire text fluently and respond ONLY with valid JSON:
+{
+  "translated_text": "<translated_text>"
+}
+Do not include any other keys, explanations, or commentary. Ensure the JSON is valid and double-quoted."""
+
+    def get_user_payload(
+        self, text: str, initial_translation: Optional[str] = None
+    ) -> str:
+        payload = {"input_text": text}
+        return json.dumps(payload, ensure_ascii=False)
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        parsed, success = self._safe_json_parse(response)
+        if not success:
+            return {
+                "translated_text": response,
+                "raw_response": response,
+                "error": "Failed to parse JSON response",
+            }
+        return {
+            "translated_text": parsed.get("translated_text", ""),
+            "raw_response": response,
+        }
+
+
+class DetailedSchema(BasePromptingSchema):
+    """Detailed schema with extended analysis including cultural context and stylistic notes."""
+
+    name = "detailed"
+    description = "Detailed schema with cultural and stylistic analysis"
+
+    def get_system_prompt(self) -> str:
+        return """You are an expert translator with deep knowledge of Chinese language, culture, and linguistics.
+
+You will receive a JSON input with Chinese text. Analyze it thoroughly and respond with ONLY a JSON object - nothing else.
+
+The JSON you must return must have EXACTLY these keys:
+- "translated_text": The complete English translation
+- "grammatical_analysis": Array of [structure, explanation] pairs
+- "challenging_phrases": Array of [phrase, explanation] pairs  
+- "cultural_context": String or null
+- "stylistic_notes": String or null
+- "alternative_interpretations": Array of strings or null
+
+CRITICAL: Do NOT use "explainations_list" - that is wrong for this schema.
+
+Example output format:
+{
+  "translated_text": "The translation here",
+  "grammatical_analysis": [["structure1", "explanation1"]],
+  "challenging_phrases": [["phrase1", "explanation1"]],
+  "cultural_context": "any cultural notes here",
+  "stylistic_notes": "any stylistic observations",
+  "alternative_interpretations": ["alt1", "alt2"]
+}
+
+Respond with ONLY valid JSON. No other text before or after."""
+
+    def get_user_payload(
+        self, text: str, initial_translation: Optional[str] = None
+    ) -> str:
+        payload = {
+            "input_text": text,
+        }
+        if initial_translation:
+            payload["initial_translation"] = initial_translation
+        return json.dumps(payload, ensure_ascii=False)
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        parsed, success = self._safe_json_parse(response)
+        if not success:
+            return {
+                "translated_text": response,
+                "raw_response": response,
+                "error": "Failed to parse JSON response",
+            }
+        return {
+            "translated_text": parsed.get("translated_text", ""),
+            "grammatical_analysis": parsed.get("grammatical_analysis", []),
+            "challenging_phrases": parsed.get("challenging_phrases", []),
+            "cultural_context": parsed.get("cultural_context"),
+            "stylistic_notes": parsed.get("stylistic_notes"),
+            "alternative_interpretations": parsed.get("alternative_interpretations"),
+            "raw_response": response,
+        }
 
 
 
@@ -183,3 +279,5 @@ class PromptingSchemaRegistry:
 
 # Initialize registry with built-in schemas
 PromptingSchemaRegistry.register(TranslateSchema())
+PromptingSchemaRegistry.register(SimpleSchema())
+PromptingSchemaRegistry.register(DetailedSchema())
