@@ -67,7 +67,6 @@ class BasePromptingSchema(ABC):
         # If all else fails, return empty dict with failure status
         return {}, False
 
-
 class TranslateSchema(BasePromptingSchema):
     """
     Default two-stage translation schema with dictionary integration.
@@ -144,7 +143,6 @@ Important rules:
             "explanations": parsed.get("explainations_list", []),
             "raw_response": response,
         }
-
 
 class SimpleSchema(BasePromptingSchema):
     """
@@ -243,7 +241,6 @@ Respond with ONLY valid JSON. No other text before or after."""
             "raw_response": response,
         }
 
-
 class QuestionSchema(BasePromptingSchema):
     """Question generation schema based on input text and desired number of output questions."""
 
@@ -333,10 +330,97 @@ Return ONLY a JSON object in the following structure, with no extra text:
             "questions_list": parsed.get("questions_list", []),
         }
 
+class LinguisticSchema(BasePromptingSchema):
+    """
+    Linguistic analysis schema for selected text of a bigger text
+    """
 
+    name = "linguistic"
+    description = "Linguistic analysis of a selection inside of a larger text"
 
+    def get_system_prompt(self):
+        return """You are a Chinese language grammar and structure analysis assistant. You will receive input in the following JSON format:
 
+{"full_text": "<full_text>", "selected_text": "<selected_text>"}
 
+Where:
+- full_text: The complete Simplified Chinese text/sentence (used for context only)
+- selected_text: The specific portion the user wants analyzed
+
+## Your Task:
+
+1. **Identify the selected_text** within the full_text context
+
+2. **Determine scope of analysis:**
+   - If selected_text is a complete grammatical unit → analyze ONLY the selected_text
+   - If selected_text is an incomplete grammatical structure (e.g., half a clause, partial phrase) → expand ONLY to the minimum necessary to capture the complete grammatical unit, and explicitly note this expansion
+
+3. **Provide your response in the following JSON format:**
+
+```json
+{
+  "analyzed_text": {
+    "chinese": "<the Chinese text you analyzed>",
+    "pinyin": "<pinyin with tone marks for the analyzed text>"
+  },
+  "expansion_note": null | "<briefly explain why expansion was needed>",
+  "english_translation": "<accurate English translation of the analyzed text>",
+  "sentence_structure_explanation": "<detailed breakdown of the syntactic structure of the analyzed text: identify subject, predicate, object, complements, modifiers, and how they relate to each other; include pinyin when referencing specific words/phrases; use linguistic terminology where appropriate>",
+  "grammatical_rule_explanation": "<explain the specific Chinese grammar rules, patterns, or constructions present ONLY in the analyzed text; include pinyin when referencing specific words; cover relevant word order, particles, aspect markers, or other Mandarin-specific features>",
+  "grammar_patterns": [
+    {
+      "pattern": "<grammar pattern name/structure found in analyzed text>",
+      "structure": "<abstract formula e.g., S + 把 + O + V + complement>",
+      "example_in_text": {
+        "chinese": "<how this pattern appears in the analyzed text>",
+        "pinyin": "<pinyin for the example>"
+      },
+      "explanation": "<brief explanation of this pattern's function and usage>"
+    }
+  ]
+}
+```
+
+## Guidelines:
+- Analyze ONLY within the scope of selected_text (or minimally expanded text)
+- Extract grammar patterns ONLY from the analyzed text, NOT from full_text
+- Always include pinyin (with tone marks: ā á ǎ à) alongside Chinese references in explanations
+- Keep explanations clear and educational
+- Use standard grammatical terminology (SVO, topic-comment, 把-construction, 是...的 structure, resultative complement, etc.)
+- Note structural differences between Chinese and English when relevant
+- If the analyzed text contains idioms (成语) or set phrases, explain both their structure as a unit and their literal composition
+- The full_text is for contextual understanding only — do not analyze or extract patterns from portions outside the analyzed text
+"""
+
+    def get_user_payload(self, full_text: str, selected_text: str) -> str:
+        """Generate JSON payload for linguistic analysis."""
+        payload = {
+            "full_text": full_text,
+            "selected_text": selected_text,
+        }
+        return json.dumps(payload, ensure_ascii=False)
+
+    def parse_response(self, response: str) -> Dict[str, Any]:
+        """Parse the linguistic analysis response."""
+        parsed, success = self._safe_json_parse(response)
+        if not success:
+            return {
+                "error": "Failed to parse JSON response",
+                "raw_response": response,
+            }
+        return {
+            "analyzed_text": parsed.get("analyzed_text", {}),
+            "expansion_note": parsed.get("expansion_note"),
+            "english_translation": parsed.get("english_translation", ""),
+            "sentence_structure_explanation": parsed.get(
+                "sentence_structure_explanation", ""
+            ),
+            "grammatical_rule_explanation": parsed.get(
+                "grammatical_rule_explanation", ""
+            ),
+            "grammar_patterns": parsed.get("grammar_patterns", []),
+            "raw_response": response,
+        }
 
 class PromptingSchemaRegistry:
     """Registry for managing available prompting schemas."""
@@ -366,9 +450,9 @@ class PromptingSchemaRegistry:
             schema = cls.get("translate")
         return schema
 
-
 # Initialize registry with built-in schemas
 PromptingSchemaRegistry.register(TranslateSchema())
 PromptingSchemaRegistry.register(SimpleSchema())
 PromptingSchemaRegistry.register(DetailedSchema())
 PromptingSchemaRegistry.register(QuestionSchema())
+PromptingSchemaRegistry.register(LinguisticSchema())
