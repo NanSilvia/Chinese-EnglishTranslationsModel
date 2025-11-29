@@ -192,3 +192,206 @@ class AsyncLinguisticJob(BaseModel):
     full_text: str = Field(..., description="Complete Chinese text for context")
     selected_text: str = Field(..., description="Text portion to analyze")
 
+
+# OpenLibrary Book Models
+class BookSummary(BaseModel):
+    """Summary of a book from OpenLibrary."""
+
+    title: str
+    authors: List[str] = Field(default_factory=list)
+    first_publish_year: Optional[int] = None
+    isbn: Optional[str] = None
+    subjects: List[str] = Field(default_factory=list)
+    publishers: List[str] = Field(default_factory=list)
+    language: List[str] = Field(default_factory=list)
+    number_of_pages: Optional[int] = None
+    openlibrary_key: Optional[str] = None
+    cover_id: Optional[int] = None
+    has_fulltext: bool = False
+
+
+class BookSearchRequest(BaseModel):
+    """Request for book search."""
+
+    query: str = Field(..., description="Search query (title, author, ISBN, etc.)")
+    limit: int = Field(default=10, ge=1, le=100, description="Maximum results")
+    author: Optional[str] = Field(None, description="Filter by author")
+    subject: Optional[str] = Field(None, description="Filter by subject")
+    place: Optional[str] = Field(None, description="Filter by place")
+    person: Optional[str] = Field(None, description="Filter by person")
+    language: Optional[str] = Field(
+        None,
+        description="Filter by language (e.g., 'chi' for Chinese, 'eng' for English, 'jpn' for Japanese)",
+    )
+
+
+class BookSearchResponse(BaseModel):
+    """Response from book search."""
+
+    query: str
+    num_found: int
+    results: List[BookSummary]
+
+
+class BookRecommendationRequest(BaseModel):
+    """Request for book recommendations based on text."""
+
+    text: str = Field(..., description="Text to analyze for recommendations")
+    limit: int = Field(default=5, ge=1, le=20, description="Number of recommendations")
+    prefer_diverse_authors: bool = Field(
+        default=True, description="Prefer books from different authors"
+    )
+
+
+class BookRecommendationResponse(BaseModel):
+    """Response with book recommendations."""
+
+    text_length: int
+    keywords: List[str]
+    num_found: int
+    recommendations: List[BookSummary]
+
+
+class TextResearchRequest(BaseModel):
+    """Request for researching related books for translated text."""
+
+    original_text: str = Field(..., description="Original Chinese text")
+    translated_text: Optional[str] = Field(
+        None, description="English translation (optional)"
+    )
+    limit: int = Field(
+        default=5, ge=1, le=20, description="Number of book recommendations"
+    )
+    language: Optional[str] = Field(
+        None, description="Filter by language code (e.g., 'chi', 'eng', 'jpn')"
+    )
+
+
+class TextResearchResponse(BaseModel):
+    """Response with translation and book recommendations."""
+
+    original_text: str
+    translated_text: str
+    keywords: List[str]
+    book_recommendations: List[BookSummary]
+    num_books_found: int
+
+
+class TextDifficultyMetrics(BaseModel):
+    """Difficulty metrics for a text."""
+
+    character_count: int
+    unique_characters: int
+    word_count: int
+    avg_word_length: float
+    complexity_score: float = Field(
+        ..., description="Overall complexity score (0-100, higher = more difficult)"
+    )
+    difficulty_level: str = Field(
+        ..., description="Difficulty level: beginner, intermediate, advanced, native"
+    )
+    hsk_level: Optional[int] = Field(
+        None, description="HSK level (1-6) for Chinese text, determined by AI"
+    )
+    vocabulary_complexity: Optional[str] = Field(
+        None, description="AI analysis of vocabulary complexity"
+    )
+    grammar_complexity: Optional[str] = Field(
+        None, description="AI analysis of grammar complexity"
+    )
+    estimated_study_hours: Optional[int] = Field(
+        None, description="Estimated total study hours needed to read this level"
+    )
+
+
+class SimilarTextResult(BaseModel):
+    """A text with similar difficulty level."""
+
+    title: str
+    authors: List[str]
+    text_preview: Optional[str] = None
+    difficulty_metrics: TextDifficultyMetrics
+    openlibrary_key: str
+    language: List[str]
+    subjects: List[str]
+
+
+class TextDifficultyRequest(BaseModel):
+    """Request for finding texts of similar difficulty."""
+
+    original_text: str = Field(..., description="Original text to analyze")
+    language: str = Field(
+        default="chi", description="Language code (e.g., 'chi', 'eng', 'jpn')"
+    )
+    limit: int = Field(
+        default=5, ge=1, le=20, description="Number of similar texts to find"
+    )
+
+
+class TextDifficultyResponse(BaseModel):
+    """Response with difficulty analysis and similar texts."""
+
+    original_text: str
+    difficulty_metrics: TextDifficultyMetrics
+    similar_texts: List[SimilarTextResult]
+    num_found: int
+
+
+class WordAnalysisRequest(BaseModel):
+    """Request for word analysis with context."""
+
+    word: str = Field(..., description="Word to analyze")
+    context: Optional[str] = Field(
+        None, description="Context sentence containing the word"
+    )
+    language: str = Field(
+        default="chi", description="Language code (e.g., 'chi', 'eng', 'jpn')"
+    )
+    include_synonyms: bool = Field(default=True, description="Include synonyms")
+    include_antonyms: bool = Field(default=True, description="Include antonyms")
+    include_alternatives: bool = Field(
+        default=True, description="Include alternative wordings"
+    )
+
+
+class WordAnalysisResponse(BaseModel):
+    """Response with word analysis including synonyms, antonyms, and alternatives."""
+
+    word: str
+    context: Optional[str]
+    language: str
+    synonyms: List[str] = Field(default_factory=list)
+    antonyms: List[str] = Field(default_factory=list)
+    alternative_wordings: List[str] = Field(default_factory=list)
+    usage_examples: List[str] = Field(default_factory=list)
+    explanation: Optional[str] = None
+
+
+class SummarizationRequest(BaseModel):
+    """Request for text summarization."""
+
+    text: str = Field(..., description="Text to summarize")
+    language: str = Field(
+        default="chi", description="Language code (e.g., 'chi', 'eng', 'jpn')"
+    )
+    length: str = Field(
+        default="medium",
+        description="Summary length: 'short' (1-2 sentences), 'medium' (3-5 sentences), 'long' (paragraph)",
+    )
+    style: str = Field(
+        default="neutral",
+        description="Summary style: 'neutral', 'simple' (easy to understand), 'academic' (formal)",
+    )
+
+
+class SummarizationResponse(BaseModel):
+    """Response with text summary."""
+
+    original_text: str
+    summary: str
+    language: str
+    length: str
+    style: str
+    key_points: List[str] = Field(default_factory=list)
+    word_count_original: int
+    word_count_summary: int
