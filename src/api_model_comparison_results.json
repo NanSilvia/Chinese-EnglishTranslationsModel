@@ -1,0 +1,682 @@
+[
+  {
+    "text_idx":0,
+    "input_text":"北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。北京故宫以三大殿为中心，占地面积72万平方米，建筑面积约15万平方米，有大小宫殿七十多座，房屋九千余间。是世界上现存规模最大、保存最为完整的木质结构古建筑之一。",
+    "reference_translation":"The Forbidden City in Beijing is the imperial palace of the Ming and Qing dynasties in China, formerly known as the Forbidden City. It is the essence of ancient Chinese palace architecture. The Forbidden City centers on the three main halls, covering an area of 720,000 square meters with a building area of approximately 150,000 square meters. It has more than 70 palaces of various sizes and over 9,000 rooms. It is one of the largest and best-preserved wooden structures in the world.",
+    "qwen3:latest_translation":"The Forbidden City in Beijing was the imperial palace of the Ming and Qing dynasties, formerly known as the Purple Forbidden City, and represents the pinnacle of ancient Chinese palace architecture. Centered around the Three Grand Palaces, it spans 720,000 square meters in total area with approximately 150,000 square meters of built-up space, featuring over 70 palaces and more than 9,000 rooms. It is one of the largest and best-preserved wooden-structured ancient buildings in the world.",
+    "qwen3:latest_result":{
+      "input_text":"北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。北京故宫以三大殿为中心，占地面积72万平方米，建筑面积约15万平方米，有大小宫殿七十多座，房屋九千余间。是世界上现存规模最大、保存最为完整的木质结构古建筑之一。",
+      "translations":{
+        "qwen3:latest":{
+          "translated_text":"The Forbidden City in Beijing was the imperial palace of the Ming and Qing dynasties, formerly known as the Purple Forbidden City, and represents the pinnacle of ancient Chinese palace architecture. Centered around the Three Grand Palaces, it spans 720,000 square meters in total area with approximately 150,000 square meters of built-up space, featuring over 70 palaces and more than 9,000 rooms. It is one of the largest and best-preserved wooden-structured ancient buildings in the world.",
+          "explanations":[
+            [
+              "旧称为紫禁城",
+              "This is a proper noun phrase with historical significance. '紫禁城' (Purple Forbidden City) is a direct translation of the Chinese term, which literally means 'Purple Forbidden City.' The term 'Purple' (紫) refers to the color associated with imperial power in ancient China, and 'Forbidden City' (禁城) signifies its restricted access. The initial translation retains the literal translation, which is appropriate for preserving the cultural specificity of the term."
+            ],
+            [
+              "木质结构古建筑",
+              "This compound noun describes 'wooden-structured ancient buildings.' The term '木质结构' (wooden structure) is a technical term in architecture, but in English, it is more natural to use 'wooden structure' as a single noun. The initial translation uses 'wooden-structured,' which is grammatically correct but slightly awkward. The explanation clarifies that this is a technical term requiring careful translation to maintain its specific meaning."
+            ],
+            [
+              "以三大殿为中心",
+              "This phrase uses a verb + noun structure ('以...为中心') to indicate that the Three Grand Palaces are the central feature. The initial translation correctly translates this as 'Centered around the Three Grand Palaces,' which maintains the spatial relationship described in the original text. The grammatical structure requires understanding the prepositional phrase construction in Chinese and its equivalent in English."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The Forbidden City in Beijing was the imperial palace of the Ming and Qing dynasties, formerly known as the Purple Forbidden City, and represents the pinnacle of ancient Chinese palace architecture. Centered around the Three Grand Palaces, it spans 720,000 square meters in total area with approximately 150,000 square meters of built-up space, featuring over 70 palaces and more than 9,000 rooms. It is one of the largest and best-preserved wooden-structured ancient buildings in the world.\",\n  \"explainations_list\": [\n    [\"旧称为紫禁城\", \"This is a proper noun phrase with historical significance. '紫禁城' (Purple Forbidden City) is a direct translation of the Chinese term, which literally means 'Purple Forbidden City.' The term 'Purple' (紫) refers to the color associated with imperial power in ancient China, and 'Forbidden City' (禁城) signifies its restricted access. The initial translation retains the literal translation, which is appropriate for preserving the cultural specificity of the term.\"],\n    [\"木质结构古建筑\", \"This compound noun describes 'wooden-structured ancient buildings.' The term '木质结构' (wooden structure) is a technical term in architecture, but in English, it is more natural to use 'wooden structure' as a single noun. The initial translation uses 'wooden-structured,' which is grammatically correct but slightly awkward. The explanation clarifies that this is a technical term requiring careful translation to maintain its specific meaning.\"],\n    [\"以三大殿为中心\", \"This phrase uses a verb + noun structure ('以...为中心') to indicate that the Three Grand Palaces are the central feature. The initial translation correctly translates this as 'Centered around the Three Grand Palaces,' which maintains the spatial relationship described in the original text. The grammatical structure requires understanding the prepositional phrase construction in Chinese and its equivalent in English.\"]\n  ]\n}",
+          "initial_translation":"The Beijing Palace is the imperial palace of the Ming and Qing dynasties, formerly known as the Purple Forbidden City, representing the essence of ancient Chinese palace architecture. Centered around the Three Grand Palaces, the Forbidden City covers an area of 720,000 square meters with a built-up area of approximately 150,000 square meters, featuring over 70 palaces and more than 9,000 rooms. It is one of the largest and best-preserved wooden-structured ancient buildings in the world.",
+          "success":true,
+          "model":"qwen3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gpt-oss:latest_translation":"The Forbidden City in Beijing was the imperial palace of China during the Ming and Qing dynasties, formerly called the Purple Forbidden City, and it is considered the essence of ancient Chinese court architecture. Centered around its three main halls, the Forbidden City covers an area of 720,000 square meters and has a built‑up area of about 150,000 square meters. It contains more than seventy palaces of various sizes and over nine thousand rooms. It is one of the world's largest and best‑preserved wooden‑structure ancient buildings still standing.",
+    "gpt-oss:latest_result":{
+      "input_text":"北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。北京故宫以三大殿为中心，占地面积72万平方米，建筑面积约15万平方米，有大小宫殿七十多座，房屋九千余间。是世界上现存规模最大、保存最为完整的木质结构古建筑之一。",
+      "translations":{
+        "gpt-oss:latest":{
+          "translated_text":"The Forbidden City in Beijing was the imperial palace of China during the Ming and Qing dynasties, formerly called the Purple Forbidden City, and it is considered the essence of ancient Chinese court architecture. Centered around its three main halls, the Forbidden City covers an area of 720,000 square meters and has a built‑up area of about 150,000 square meters. It contains more than seventy palaces of various sizes and over nine thousand rooms. It is one of the world's largest and best‑preserved wooden‑structure ancient buildings still standing.",
+          "explanations":[
+            [
+              "北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。",
+              "This sentence is a chain of appositive phrases linked only by commas in Chinese. In English we need to separate the ideas with commas and a relative clause, and we use the phrase \"formerly called\" to translate the appositive \"旧称为紫禁城\"."
+            ],
+            [
+              "占地面积72万平方米，建筑面积约15万平方米",
+              "Two coordinate clauses are joined by a comma in Chinese. In English we express them with two verb phrases linked by \"and\": \"covers an area of 720,000 square meters and has a built‑up area of about 150,000 square meters.\""
+            ],
+            [
+              "有大小宫殿七十多座，房屋九千余间。",
+              "Chinese uses measure words \"座\" for buildings and \"间\" for rooms, along with quantifiers \"七十多\" and \"九千余\". The translation renders this as \"more than seventy palaces of various sizes and over nine thousand rooms.\""
+            ],
+            [
+              "是世界上现存规模最大、保存最为完整的木质结构古建筑之一。",
+              "The sentence lists two superlatives separated by a comma: \"规模最大\" (largest) and \"保存最为完整\" (best‑preserved). In English we combine them into \"one of the world's largest and best‑preserved wooden‑structure ancient buildings still standing,\" capturing both the size and preservation aspects."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The Forbidden City in Beijing was the imperial palace of China during the Ming and Qing dynasties, formerly called the Purple Forbidden City, and it is considered the essence of ancient Chinese court architecture. Centered around its three main halls, the Forbidden City covers an area of 720,000 square meters and has a built‑up area of about 150,000 square meters. It contains more than seventy palaces of various sizes and over nine thousand rooms. It is one of the world's largest and best‑preserved wooden‑structure ancient buildings still standing.\",\n  \"explainations_list\": [\n    [\n      \"北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。\",\n      \"This sentence is a chain of appositive phrases linked only by commas in Chinese. In English we need to separate the ideas with commas and a relative clause, and we use the phrase \\\"formerly called\\\" to translate the appositive \\\"旧称为紫禁城\\\".\"\n    ],\n    [\n      \"占地面积72万平方米，建筑面积约15万平方米\",\n      \"Two coordinate clauses are joined by a comma in Chinese. In English we express them with two verb phrases linked by \\\"and\\\": \\\"covers an area of 720,000 square meters and has a built‑up area of about 150,000 square meters.\\\"\"\n    ],\n    [\n      \"有大小宫殿七十多座，房屋九千余间。\",\n      \"Chinese uses measure words \\\"座\\\" for buildings and \\\"间\\\" for rooms, along with quantifiers \\\"七十多\\\" and \\\"九千余\\\". The translation renders this as \\\"more than seventy palaces of various sizes and over nine thousand rooms.\\\"\"\n    ],\n    [\n      \"是世界上现存规模最大、保存最为完整的木质结构古建筑之一。\",\n      \"The sentence lists two superlatives separated by a comma: \\\"规模最大\\\" (largest) and \\\"保存最为完整\\\" (best‑preserved). In English we combine them into \\\"one of the world's largest and best‑preserved wooden‑structure ancient buildings still standing,\\\" capturing both the size and preservation aspects.\"\n    ]\n  ]\n}",
+          "initial_translation":"The Forbidden City in Beijing was the royal palace of China during the Ming and Qing dynasties, formerly known as the Purple Forbidden City, and it represents the pinnacle of ancient Chinese court architecture. Centered around its three main halls, the Forbidden City covers an area of 720,000 square meters, with a built-up area of about 150,000 square meters. It contains more than seventy palaces of varying sizes and over nine thousand rooms. It is one of the world's largest and best-preserved wooden-structure ancient buildings still standing.",
+          "success":true,
+          "model":"gpt-oss:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gemma3:latest_translation":"The Forbidden City in Beijing is the imperial palace of the Ming and Qing dynasties. Formerly known as Zhaidi Cheng, it is the epitome of ancient Chinese palace architecture. The Forbidden City is centered around the Three Great Halls, covering an area of 720,000 square meters with a building area of approximately 150,000 square meters, featuring over seventy palaces and more than nine thousand rooms. It is one of the largest and best-preserved wooden structure ancient buildings in the world.",
+    "gemma3:latest_result":{
+      "input_text":"北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。北京故宫以三大殿为中心，占地面积72万平方米，建筑面积约15万平方米，有大小宫殿七十多座，房屋九千余间。是世界上现存规模最大、保存最为完整的木质结构古建筑之一。",
+      "translations":{
+        "gemma3:latest":{
+          "translated_text":"The Forbidden City in Beijing is the imperial palace of the Ming and Qing dynasties. Formerly known as Zhaidi Cheng, it is the epitome of ancient Chinese palace architecture. The Forbidden City is centered around the Three Great Halls, covering an area of 720,000 square meters with a building area of approximately 150,000 square meters, featuring over seventy palaces and more than nine thousand rooms. It is one of the largest and best-preserved wooden structure ancient buildings in the world.",
+          "explanations":[
+            [
+              "北京故宫是中国明清两代的皇家宫殿",
+              "This sentence establishes the core subject and its historical context. The phrase ‘两代的’ (two dynasties) is crucial for understanding the palace's long history and significance. It’s a common way to express a period of time in Chinese, and accurately conveying this nuance requires careful phrasing."
+            ],
+            [
+              "旧称为紫禁城",
+              "This phrase describes the palace’s historical name change. ‘旧称为’ (formerly known as) is a standard way to introduce a historical name. The name ‘紫禁城’ (Zhaidi Cheng) itself has a symbolic meaning related to imperial power and restriction – ‘purple’ (紫) and ‘forbidden’ (禁)."
+            ],
+            [
+              "占地面积72万平方米，建筑面积约15万平方米",
+              "This section presents factual information about the palace’s size. The use of ‘万’ (wàn – ten thousand) is typical in Chinese for expressing large numbers. The phrase ‘约’ (yuē – approximately) adds a degree of uncertainty, reflecting the way such figures are often presented in historical texts."
+            ],
+            [
+              "有大小宫殿七十多座，房屋九千余间",
+              "This part describes the number of palaces and buildings. ‘九千余’ (jiǔ qiān yú – more than nine thousand) is a common way to express a number greater than a specific quantity in Chinese. The use of ‘间’ (jiān – room, hall) is specific to traditional Chinese architecture, indicating the types of buildings and their scale."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The Forbidden City in Beijing is the imperial palace of the Ming and Qing dynasties. Formerly known as Zhaidi Cheng, it is the epitome of ancient Chinese palace architecture. The Forbidden City is centered around the Three Great Halls, covering an area of 720,000 square meters with a building area of approximately 150,000 square meters, featuring over seventy palaces and more than nine thousand rooms. It is one of the largest and best-preserved wooden structure ancient buildings in the world.\",\n  \"explainations_list\": [\n    [\"北京故宫是中国明清两代的皇家宫殿\", \"This sentence establishes the core subject and its historical context. The phrase ‘两代的’ (two dynasties) is crucial for understanding the palace's long history and significance. It’s a common way to express a period of time in Chinese, and accurately conveying this nuance requires careful phrasing.\"],\n    [\"旧称为紫禁城\", \"This phrase describes the palace’s historical name change. ‘旧称为’ (formerly known as) is a standard way to introduce a historical name. The name ‘紫禁城’ (Zhaidi Cheng) itself has a symbolic meaning related to imperial power and restriction – ‘purple’ (紫) and ‘forbidden’ (禁).\"],\n    [\"占地面积72万平方米，建筑面积约15万平方米\", \"This section presents factual information about the palace’s size. The use of ‘万’ (wàn – ten thousand) is typical in Chinese for expressing large numbers. The phrase ‘约’ (yuē – approximately) adds a degree of uncertainty, reflecting the way such figures are often presented in historical texts.\"],\n    [\"有大小宫殿七十多座，房屋九千余间\", \"This part describes the number of palaces and buildings. ‘九千余’ (jiǔ qiān yú – more than nine thousand) is a common way to express a number greater than a specific quantity in Chinese. The use of ‘间’ (jiān – room, hall) is specific to traditional Chinese architecture, indicating the types of buildings and their scale.\"]\n  ]\n}",
+          "initial_translation":"The Forbidden City in Beijing is the imperial palace of the Ming and Qing dynasties. Formerly known as Zhaidi Cheng, it is the epitome of ancient Chinese palace architecture. The Forbidden City is centered around the Three Great Halls, covering an area of 720,000 square meters with a building area of approximately 150,000 square meters, featuring over seventy palaces and more than nine thousand rooms. It is one of the largest and best-preserved wooden structure ancient buildings in the world.",
+          "success":true,
+          "model":"gemma3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "deepseek-r1:8b_translation":"The Forbidden City in Beijing served as the imperial palace for China during the Ming and Qing dynasties, commonly known by its former name, the Purple Forbidden City. It epitomizes the pinnacle of ancient Chinese palace architecture. At its core lies the Three Great Halls, with the complex spanning 720,000 square meters, encompassing approximately 150,000 square meters of built structures. Within this expansive site, there are over 70 palaces and more than 9,000 rooms. It stands as one of the largest and best-preserved timber structures among ancient wooden architecture complexes globally.",
+    "deepseek-r1:8b_result":{
+      "input_text":"北京故宫是中国明清两代的皇家宫殿，旧称为紫禁城，是中国古代宫廷建筑的精华。北京故宫以三大殿为中心，占地面积72万平方米，建筑面积约15万平方米，有大小宫殿七十多座，房屋九千余间。是世界上现存规模最大、保存最为完整的木质结构古建筑之一。",
+      "translations":{
+        "deepseek-r1:8b":{
+          "translated_text":"The Forbidden City in Beijing served as the imperial palace for China during the Ming and Qing dynasties, commonly known by its former name, the Purple Forbidden City. It epitomizes the pinnacle of ancient Chinese palace architecture. At its core lies the Three Great Halls, with the complex spanning 720,000 square meters, encompassing approximately 150,000 square meters of built structures. Within this expansive site, there are over 70 palaces and more than 9,000 rooms. It stands as one of the largest and best-preserved timber structures among ancient wooden architecture complexes globally.",
+          "explanations":[
+            [
+              "紫禁城",
+              "A fixed expression referring to the common name of the Forbidden City. While the initial translation used \"Purple Forbidden City\", the refined translation adopted the more commonly understood term \"Forbidden City\" (紫禁城), acknowledging that the literal translation might be less familiar to English speakers. The explanation clarifies that this is a culturally specific name with a widely accepted English equivalent."
+            ],
+            [
+              "精华",
+              "An idiom meaning the quintessence or the highest point of something. Here, it signifies that the Forbidden City represents the absolute pinnacle or the most refined example of ancient Chinese palace architecture. The explanation highlights that this phrase carries a connotation of being the apex or the very best, requiring careful translation to convey its emphatic meaning."
+            ],
+            [
+              "木质结构古建筑之一",
+              "A challenging phrase combining several elements: '木质结构' (timber structures), '古建筑' (ancient architecture), and '之一' (one of). This phrase describes the Forbidden City as belonging to the category of ancient timber structures, and specifically highlights it as one of the largest and best-preserved examples in the world. The explanation breaks down the components and notes that the refined translation effectively captures the meaning, though slightly rephrased for fluency ('among ancient wooden architecture complexes')."
+            ],
+            [
+              "三大殿为中心",
+              "A structure indicating centrality. '三大殿' (The Three Great Halls) is a specific reference to the main buildings (太和殿 Taihemen, 中和殿 Zhonghemen, 保和殿 Baohemen) located at the heart of the Forbidden City complex. The explanation points out that while the initial translation used \"centered around the Three Great Halls\", the refined version used \"At its core lies\", slightly refining the structure for better flow in English while retaining the same core meaning of centrality."
+            ],
+            [
+              "建筑面积约15万平方米",
+              "A challenging numerical expression combined with units. '建筑面积' specifically refers to the built-up area (interior floor space), distinct from the total占地面积 (total covered\/land area). The translation correctly converts the Chinese units (万平方米) to square meters (sq m) and uses the approximate figure 'about 150,000 sq m'. The explanation highlights the importance of understanding the specific architectural term 'built area' and the accurate conversion of Chinese units."
+            ],
+            [
+              "保存最为完整的",
+              "An idiom emphasizing the state of preservation. '保存最为完整的' means 'the best-preserved' or 'the most intact'. This phrase underscores the exceptional condition of the Forbidden City compared to other ancient wooden structures. The explanation notes that this idiomatic expression conveys a high degree of completeness and preservation, crucial for conveying the site's historical significance."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The Forbidden City in Beijing served as the imperial palace for China during the Ming and Qing dynasties, commonly known by its former name, the Purple Forbidden City. It epitomizes the pinnacle of ancient Chinese palace architecture. At its core lies the Three Great Halls, with the complex spanning 720,000 square meters, encompassing approximately 150,000 square meters of built structures. Within this expansive site, there are over 70 palaces and more than 9,000 rooms. It stands as one of the largest and best-preserved timber structures among ancient wooden architecture complexes globally.\",\n  \"explainations_list\": [\n    [\"紫禁城\", \"A fixed expression referring to the common name of the Forbidden City. While the initial translation used \\\"Purple Forbidden City\\\", the refined translation adopted the more commonly understood term \\\"Forbidden City\\\" (紫禁城), acknowledging that the literal translation might be less familiar to English speakers. The explanation clarifies that this is a culturally specific name with a widely accepted English equivalent.\"],\n    [\"精华\", \"An idiom meaning the quintessence or the highest point of something. Here, it signifies that the Forbidden City represents the absolute pinnacle or the most refined example of ancient Chinese palace architecture. The explanation highlights that this phrase carries a connotation of being the apex or the very best, requiring careful translation to convey its emphatic meaning.\"],\n    [\"木质结构古建筑之一\", \"A challenging phrase combining several elements: '木质结构' (timber structures), '古建筑' (ancient architecture), and '之一' (one of). This phrase describes the Forbidden City as belonging to the category of ancient timber structures, and specifically highlights it as one of the largest and best-preserved examples in the world. The explanation breaks down the components and notes that the refined translation effectively captures the meaning, though slightly rephrased for fluency ('among ancient wooden architecture complexes').\"],\n    [\"三大殿为中心\", \"A structure indicating centrality. '三大殿' (The Three Great Halls) is a specific reference to the main buildings (太和殿 Taihemen, 中和殿 Zhonghemen, 保和殿 Baohemen) located at the heart of the Forbidden City complex. The explanation points out that while the initial translation used \\\"centered around the Three Great Halls\\\", the refined version used \\\"At its core lies\\\", slightly refining the structure for better flow in English while retaining the same core meaning of centrality.\"],\n    [\"建筑面积约15万平方米\", \"A challenging numerical expression combined with units. '建筑面积' specifically refers to the built-up area (interior floor space), distinct from the total占地面积 (total covered\/land area). The translation correctly converts the Chinese units (万平方米) to square meters (sq m) and uses the approximate figure 'about 150,000 sq m'. The explanation highlights the importance of understanding the specific architectural term 'built area' and the accurate conversion of Chinese units.\"],\n    [\"保存最为完整的\", \"An idiom emphasizing the state of preservation. '保存最为完整的' means 'the best-preserved' or 'the most intact'. This phrase underscores the exceptional condition of the Forbidden City compared to other ancient wooden structures. The explanation notes that this idiomatic expression conveys a high degree of completeness and preservation, crucial for conveying the site's historical significance.\"]\n  ]\n}",
+          "initial_translation":"The Forbidden City in Beijing was the imperial palace of China during the Ming and Qing dynasties, formerly known as the Purple Forbidden City. It represents the pinnacle of ancient Chinese palace architecture. The complex is centered around the Three Great Halls, covering an area of 720,000 square meters with approximately 150,000 square meters of built space. There are over 70 palaces and more than 9,000 rooms within the compound. It stands as one of the largest and best-preserved timber structures among ancient wooden architecture complexes in the world.",
+          "success":true,
+          "model":"deepseek-r1:8b"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "qwen3:latest_vs_gpt-oss:latest_similarity":0.9664760828,
+    "qwen3:latest_vs_gemma3:latest_similarity":0.9016190767,
+    "qwen3:latest_vs_deepseek-r1:8b_similarity":0.9433963299,
+    "qwen3:latest_vs_reference_similarity":0.9221900702,
+    "gpt-oss:latest_vs_gemma3:latest_similarity":0.9154322147,
+    "gpt-oss:latest_vs_deepseek-r1:8b_similarity":0.9465125799,
+    "gpt-oss:latest_vs_reference_similarity":0.9459016323,
+    "gemma3:latest_vs_deepseek-r1:8b_similarity":0.9187905192,
+    "gemma3:latest_vs_reference_similarity":0.9696090817,
+    "deepseek-r1:8b_vs_reference_similarity":0.9250830412
+  },
+  {
+    "text_idx":1,
+    "input_text":"人工智能技术的发展正在深刻改变着我们的生活方式。从智能手机的语音助手到自动驾驶汽车，人工智能已经渗透到日常生活的方方面面。机器学习算法能够分析海量数据，识别模式，并做出预测，这为医疗诊断、金融分析和个性化推荐等领域带来了革命性的变化。",
+    "reference_translation":"The development of artificial intelligence technology is profoundly changing our way of life. From voice assistants on smartphones to self-driving cars, AI has penetrated every aspect of daily life. Machine learning algorithms can analyze massive amounts of data, identify patterns, and make predictions, bringing revolutionary changes to fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+    "qwen3:latest_translation":"The development of artificial intelligence technology is profoundly transforming our daily lives. From voice assistants in smartphones to self-driving cars, artificial intelligence has been integrated into every aspect of everyday life. Machine learning algorithms can analyze vast quantities of data, identify patterns, and make predictions, driving transformative changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+    "qwen3:latest_result":{
+      "input_text":"人工智能技术的发展正在深刻改变着我们的生活方式。从智能手机的语音助手到自动驾驶汽车，人工智能已经渗透到日常生活的方方面面。机器学习算法能够分析海量数据，识别模式，并做出预测，这为医疗诊断、金融分析和个性化推荐等领域带来了革命性的变化。",
+      "translations":{
+        "qwen3:latest":{
+          "translated_text":"The development of artificial intelligence technology is profoundly transforming our daily lives. From voice assistants in smartphones to self-driving cars, artificial intelligence has been integrated into every aspect of everyday life. Machine learning algorithms can analyze vast quantities of data, identify patterns, and make predictions, driving transformative changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+          "explanations":[
+            [
+              "从智能手机的语音助手到自动驾驶汽车",
+              "This list structure presents a range of AI applications. The 'from...to...' construction requires careful parallelism in English to maintain the contrast between consumer tech (smartphones) and transportation (self-driving cars), while preserving the sense of progression in AI adoption."
+            ],
+            [
+              "机器学习算法能够分析海量数据，识别模式，并做出预测",
+              "This complex verb chain (analyze, identify, make) represents a sequence of actions performed by algorithms. The challenge lies in maintaining the technical precision of '海量数据' (vast data volumes) while ensuring the causal relationship between data analysis and predictive capabilities is clear."
+            ],
+            [
+              "带来革命性的变化",
+              "The phrase 'revolutionary changes' captures the transformative impact of AI, but the challenge was conveying the nuance of 'revolutionary' which implies fundamental disruption rather than incremental improvement. This required selecting a term that balances technical accuracy with natural English expression."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The development of artificial intelligence technology is profoundly transforming our daily lives. From voice assistants in smartphones to self-driving cars, artificial intelligence has been integrated into every aspect of everyday life. Machine learning algorithms can analyze vast quantities of data, identify patterns, and make predictions, driving transformative changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.\",\n  \"explainations_list\": [\n    [\"从智能手机的语音助手到自动驾驶汽车\", \"This list structure presents a range of AI applications. The 'from...to...' construction requires careful parallelism in English to maintain the contrast between consumer tech (smartphones) and transportation (self-driving cars), while preserving the sense of progression in AI adoption.\"],\n    [\"机器学习算法能够分析海量数据，识别模式，并做出预测\", \"This complex verb chain (analyze, identify, make) represents a sequence of actions performed by algorithms. The challenge lies in maintaining the technical precision of '海量数据' (vast data volumes) while ensuring the causal relationship between data analysis and predictive capabilities is clear.\"],\n    [\"带来革命性的变化\", \"The phrase 'revolutionary changes' captures the transformative impact of AI, but the challenge was conveying the nuance of 'revolutionary' which implies fundamental disruption rather than incremental improvement. This required selecting a term that balances technical accuracy with natural English expression.\"]\n  ]\n}",
+          "initial_translation":"The development of artificial intelligence technology is profoundly changing our way of life. From voice assistants in smartphones to self-driving cars, artificial intelligence has permeated all aspects of daily life. Machine learning algorithms can analyze massive amounts of data, identify patterns, and make predictions, leading to revolutionary changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+          "success":true,
+          "model":"qwen3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gpt-oss:latest_translation":"The development of artificial‑intelligence technology is profoundly transforming our way of life. From voice assistants on smartphones to self‑driving cars, AI has already seeped into every corner of everyday life. Machine‑learning algorithms can sift through massive amounts of data, spot patterns, and predict outcomes—bringing revolutionary changes to fields such as medical diagnostics, financial analysis, and personalized recommendations.",
+    "gpt-oss:latest_result":{
+      "input_text":"人工智能技术的发展正在深刻改变着我们的生活方式。从智能手机的语音助手到自动驾驶汽车，人工智能已经渗透到日常生活的方方面面。机器学习算法能够分析海量数据，识别模式，并做出预测，这为医疗诊断、金融分析和个性化推荐等领域带来了革命性的变化。",
+      "translations":{
+        "gpt-oss:latest":{
+          "translated_text":"The development of artificial‑intelligence technology is profoundly transforming our way of life. From voice assistants on smartphones to self‑driving cars, AI has already seeped into every corner of everyday life. Machine‑learning algorithms can sift through massive amounts of data, spot patterns, and predict outcomes—bringing revolutionary changes to fields such as medical diagnostics, financial analysis, and personalized recommendations.",
+          "explanations":[
+            [
+              "正在深刻改变着",
+              "The Chinese phrase uses the continuous aspect marker ‘正在’ followed by the verb ‘改变’ and the particle ‘着’, indicating an action that is currently in progress and has a lasting effect. In English this is rendered with the present continuous tense ‘is profoundly changing’, which captures both the ongoing nature and the depth of the transformation."
+            ],
+            [
+              "渗透到",
+              "The verb ‘渗透’ literally means ‘to seep’ or ‘to permeate’. It conveys a subtle, gradual spread of influence rather than a sudden or direct penetration. Translating it as ‘has already seeped into’ (or ‘has permeated’) preserves the metaphorical sense of AI gradually infiltrating everyday life."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The development of artificial‑intelligence technology is profoundly transforming our way of life. From voice assistants on smartphones to self‑driving cars, AI has already seeped into every corner of everyday life. Machine‑learning algorithms can sift through massive amounts of data, spot patterns, and predict outcomes—bringing revolutionary changes to fields such as medical diagnostics, financial analysis, and personalized recommendations.\",\n  \"explainations_list\": [\n    [\n      \"正在深刻改变着\",\n      \"The Chinese phrase uses the continuous aspect marker ‘正在’ followed by the verb ‘改变’ and the particle ‘着’, indicating an action that is currently in progress and has a lasting effect. In English this is rendered with the present continuous tense ‘is profoundly changing’, which captures both the ongoing nature and the depth of the transformation.\"\n    ],\n    [\n      \"渗透到\",\n      \"The verb ‘渗透’ literally means ‘to seep’ or ‘to permeate’. It conveys a subtle, gradual spread of influence rather than a sudden or direct penetration. Translating it as ‘has already seeped into’ (or ‘has permeated’) preserves the metaphorical sense of AI gradually infiltrating everyday life.\"\n    ]\n  ]\n}",
+          "initial_translation":"The development of artificial intelligence technology is profoundly changing our way of life. From voice assistants on smartphones to autonomous vehicles, AI has permeated every aspect of daily life. Machine learning algorithms can analyze massive amounts of data, identify patterns, and make predictions, bringing revolutionary changes to fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+          "success":true,
+          "model":"gpt-oss:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gemma3:latest_translation":"The development of artificial intelligence technology is profoundly changing our lifestyles. From smartphone voice assistants to self-driving cars, artificial intelligence has permeated all aspects of daily life. Machine learning algorithms can analyze massive amounts of data, identify patterns, and make predictions, which has brought about revolutionary changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+    "gemma3:latest_result":{
+      "input_text":"人工智能技术的发展正在深刻改变着我们的生活方式。从智能手机的语音助手到自动驾驶汽车，人工智能已经渗透到日常生活的方方面面。机器学习算法能够分析海量数据，识别模式，并做出预测，这为医疗诊断、金融分析和个性化推荐等领域带来了革命性的变化。",
+      "translations":{
+        "gemma3:latest":{
+          "translated_text":"The development of artificial intelligence technology is profoundly changing our lifestyles. From smartphone voice assistants to self-driving cars, artificial intelligence has permeated all aspects of daily life. Machine learning algorithms can analyze massive amounts of data, identify patterns, and make predictions, which has brought about revolutionary changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+          "explanations":[
+            [
+              "人工智能技术的发展正在深刻改变着我们的生活方式。",
+              "This sentence is straightforward, but the phrase ‘深刻改变’ (profoundly changing) requires careful consideration. It emphasizes the *extent* of the change, suggesting a significant and transformative impact.  A literal translation might not fully capture this nuance."
+            ],
+            [
+              "机器学习算法能够分析海量数据，识别模式，并做出预测，",
+              "The phrase ‘海量数据’ (massive amounts of data) is a key challenge. It’s an idiom in Chinese, representing a truly enormous quantity.  The sentence structure, with the repeated use of ‘能够’ (able to), creates a somewhat formal tone, typical of technical descriptions. The use of ‘并’ (and) before ‘做出预测’ (make predictions) creates a parallel structure, which is common in Chinese and adds to the sentence’s rhythm."
+            ],
+            [
+              "这为医疗诊断、金融分析和个性化推荐等领域带来了革命性的变化。",
+              "‘带来革命性的变化’ (brought about revolutionary changes) is a common idiom. It’s a slightly hyperbolic expression, emphasizing the dramatic and transformative impact.  The use of ‘等’ (etc.) suggests that there are other fields affected, but doesn't list them explicitly, adding to the sentence's generality."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The development of artificial intelligence technology is profoundly changing our lifestyles. From smartphone voice assistants to self-driving cars, artificial intelligence has permeated all aspects of daily life. Machine learning algorithms can analyze massive amounts of data, identify patterns, and make predictions, which has brought about revolutionary changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.\",\n  \"explainations_list\": [\n    [\"人工智能技术的发展正在深刻改变着我们的生活方式。\", \"This sentence is straightforward, but the phrase ‘深刻改变’ (profoundly changing) requires careful consideration. It emphasizes the *extent* of the change, suggesting a significant and transformative impact.  A literal translation might not fully capture this nuance.\"],\n    [\"机器学习算法能够分析海量数据，识别模式，并做出预测，\", \"The phrase ‘海量数据’ (massive amounts of data) is a key challenge. It’s an idiom in Chinese, representing a truly enormous quantity.  The sentence structure, with the repeated use of ‘能够’ (able to), creates a somewhat formal tone, typical of technical descriptions. The use of ‘并’ (and) before ‘做出预测’ (make predictions) creates a parallel structure, which is common in Chinese and adds to the sentence’s rhythm.\"],\n    [\"这为医疗诊断、金融分析和个性化推荐等领域带来了革命性的变化。\", \"‘带来革命性的变化’ (brought about revolutionary changes) is a common idiom. It’s a slightly hyperbolic expression, emphasizing the dramatic and transformative impact.  The use of ‘等’ (etc.) suggests that there are other fields affected, but doesn't list them explicitly, adding to the sentence's generality.\"]\n  ]\n}",
+          "initial_translation":"The development of artificial intelligence technology is profoundly changing our lifestyles. From smartphone voice assistants to self-driving cars, artificial intelligence has permeated all aspects of daily life. Machine learning algorithms can analyze massive amounts of data, identify patterns, and make predictions, which has brought about revolutionary changes in fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+          "success":true,
+          "model":"gemma3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "deepseek-r1:8b_translation":"The development of artificial intelligence technology is profoundly transforming our lifestyles. From voice assistants on smartphones to self-driving cars, AI has seamlessly integrated into every facet of daily life. Machine learning algorithms can analyze massive datasets, identify patterns, and generate predictions, leading to revolutionary changes in areas like medical diagnosis, financial analysis, and personalized recommendations.",
+    "deepseek-r1:8b_result":{
+      "input_text":"人工智能技术的发展正在深刻改变着我们的生活方式。从智能手机的语音助手到自动驾驶汽车，人工智能已经渗透到日常生活的方方面面。机器学习算法能够分析海量数据，识别模式，并做出预测，这为医疗诊断、金融分析和个性化推荐等领域带来了革命性的变化。",
+      "translations":{
+        "deepseek-r1:8b":{
+          "translated_text":"The development of artificial intelligence technology is profoundly transforming our lifestyles. From voice assistants on smartphones to self-driving cars, AI has seamlessly integrated into every facet of daily life. Machine learning algorithms can analyze massive datasets, identify patterns, and generate predictions, leading to revolutionary changes in areas like medical diagnosis, financial analysis, and personalized recommendations.",
+          "explanations":[
+            [
+              "从智能手机的语音助手到自动驾驶汽车",
+              "This phrase employs a parallel structure (from...to...) to list examples, which is common in English to introduce a broad spectrum of applications. The challenge lies in maintaining this clear, enumerative style while ensuring the examples flow naturally and collectively illustrate the pervasive nature of AI."
+            ],
+            [
+              "人工智能已经渗透到日常生活的方方面面",
+              "This idiomatic expression uses '方方面面' to mean 'every aspect' or 'innumerable details'. The challenge is capturing this comprehensive and pervasive sense without sounding redundant. The translation uses 'every facet of daily life' to convey this meaning concisely and effectively."
+            ],
+            [
+              "机器学习算法能够分析海量数据",
+              "This clause contains the technical term 'machine learning algorithm' and the verb phrase '能够...分析' ('able to analyze'). The challenge is accurately translating technical terminology while maintaining the ability clause structure ('can analyze') which conveys capability or possibility."
+            ],
+            [
+              "识别模式，并做出预测",
+              "This parallel structure (识别模式, 并做出预测) connects two related actions performed by the algorithms. The challenge is to use appropriate participial phrases ('analyzing...', 'identifying...', 'generating...') in English to show simultaneity or sequence of actions within a complex sentence structure."
+            ],
+            [
+              "这为...等领域带来了革命性的变化",
+              "This sentence uses a passive construction ('was brought') and introduces the consequences ('revolutionary changes') caused by the previous action. The challenge is handling the passive voice in English and clearly linking the cause (the algorithm's actions) to the effect (changes in fields) using appropriate conjunctions like 'leading to' or prepositions like 'in'."
+            ],
+            [
+              "带来了革命性的变化",
+              "This phrase describes a consequence ('brought changes') caused by the previous action. The challenge is conveying the transformative and fundamental nature of the changes ('revolutionary') in English, ensuring it matches the impact described in the source text."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"The development of artificial intelligence technology is profoundly transforming our lifestyles. From voice assistants on smartphones to self-driving cars, AI has seamlessly integrated into every facet of daily life. Machine learning algorithms can analyze massive datasets, identify patterns, and generate predictions, leading to revolutionary changes in areas like medical diagnosis, financial analysis, and personalized recommendations.\",\n  \"explainations_list\": [\n    [\"从智能手机的语音助手到自动驾驶汽车\", \"This phrase employs a parallel structure (from...to...) to list examples, which is common in English to introduce a broad spectrum of applications. The challenge lies in maintaining this clear, enumerative style while ensuring the examples flow naturally and collectively illustrate the pervasive nature of AI.\"],\n    [\"人工智能已经渗透到日常生活的方方面面\", \"This idiomatic expression uses '方方面面' to mean 'every aspect' or 'innumerable details'. The challenge is capturing this comprehensive and pervasive sense without sounding redundant. The translation uses 'every facet of daily life' to convey this meaning concisely and effectively.\"],\n    [\"机器学习算法能够分析海量数据\", \"This clause contains the technical term 'machine learning algorithm' and the verb phrase '能够...分析' ('able to analyze'). The challenge is accurately translating technical terminology while maintaining the ability clause structure ('can analyze') which conveys capability or possibility.\"],\n    [\"识别模式，并做出预测\", \"This parallel structure (识别模式, 并做出预测) connects two related actions performed by the algorithms. The challenge is to use appropriate participial phrases ('analyzing...', 'identifying...', 'generating...') in English to show simultaneity or sequence of actions within a complex sentence structure.\"],\n    [\"这为...等领域带来了革命性的变化\", \"This sentence uses a passive construction ('was brought') and introduces the consequences ('revolutionary changes') caused by the previous action. The challenge is handling the passive voice in English and clearly linking the cause (the algorithm's actions) to the effect (changes in fields) using appropriate conjunctions like 'leading to' or prepositions like 'in'.\"],\n    [\"带来了革命性的变化\", \"This phrase describes a consequence ('brought changes') caused by the previous action. The challenge is conveying the transformative and fundamental nature of the changes ('revolutionary') in English, ensuring it matches the impact described in the source text.\"\n  ]\n}",
+          "initial_translation":"The development of artificial intelligence technology is profoundly transforming our lifestyles. From voice assistants on smartphones to self-driving cars, AI has seeped into every aspect of daily life. Machine learning algorithms can analyze vast amounts of data, identify patterns, and make predictions, bringing transformative changes to fields such as medical diagnosis, financial analysis, and personalized recommendations.",
+          "success":true,
+          "model":"deepseek-r1:8b"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "qwen3:latest_vs_gpt-oss:latest_similarity":0.9444059134,
+    "qwen3:latest_vs_gemma3:latest_similarity":0.9633442163,
+    "qwen3:latest_vs_deepseek-r1:8b_similarity":0.9517900944,
+    "qwen3:latest_vs_reference_similarity":0.9759958982,
+    "gpt-oss:latest_vs_gemma3:latest_similarity":0.9266536236,
+    "gpt-oss:latest_vs_deepseek-r1:8b_similarity":0.9320539236,
+    "gpt-oss:latest_vs_reference_similarity":0.9528715611,
+    "gemma3:latest_vs_deepseek-r1:8b_similarity":0.9688138366,
+    "gemma3:latest_vs_reference_similarity":0.9745784998,
+    "deepseek-r1:8b_vs_reference_similarity":0.9628320336
+  },
+  {
+    "text_idx":2,
+    "input_text":"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+    "reference_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and biodiversity loss threaten humanity's future. Governments and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and protecting natural habitats.",
+    "qwen3:latest_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biodiversity threaten humanity's future. Governments around the world and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and protecting natural habitats.",
+    "qwen3:latest_result":{
+      "input_text":"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+      "translations":{
+        "qwen3:latest":{
+          "translated_text":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biodiversity threaten humanity's future. Governments around the world and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and protecting natural habitats.",
+          "explanations":[
+            [
+              "环境保护是当今世界面临的重大挑战之一",
+              "The passive structure '面临的重大挑战之一' (one of the major challenges facing) requires conveying the passive meaning in English without using a passive verb. The translation uses a prepositional phrase 'facing the world today' to maintain the original meaning while adhering to English syntax."
+            ],
+            [
+              "生物多样性丧失",
+              "This technical term refers to the decline in biodiversity, a specific ecological concept. Translating it as 'loss of biodiversity' captures the intended meaning, but the phrase is non-literal in Chinese and requires precise terminology to ensure clarity in the translation."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biodiversity threaten humanity's future. Governments around the world and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and protecting natural habitats.\",\n  \"explainations_list\": [\n    [\"环境保护是当今世界面临的重大挑战之一\", \"The passive structure '面临的重大挑战之一' (one of the major challenges facing) requires conveying the passive meaning in English without using a passive verb. The translation uses a prepositional phrase 'facing the world today' to maintain the original meaning while adhering to English syntax.\"],\n    [\"生物多样性丧失\", \"This technical term refers to the decline in biodiversity, a specific ecological concept. Translating it as 'loss of biodiversity' captures the intended meaning, but the phrase is non-literal in Chinese and requires precise terminology to ensure clarity in the translation.\"]\n  ]\n}",
+          "initial_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biodiversity threaten humanity's future. Governments around the world and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and protecting natural habitats.",
+          "success":true,
+          "model":"qwen3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gpt-oss:latest_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and biodiversity loss threaten humanity's future. Governments and international organizations are taking measures to promote sustainable development, including the development of clean energy, the reduction of greenhouse gas emissions, and the protection of natural habitats.",
+    "gpt-oss:latest_result":{
+      "input_text":"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+      "translations":{
+        "gpt-oss:latest":{
+          "translated_text":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and biodiversity loss threaten humanity's future. Governments and international organizations are taking measures to promote sustainable development, including the development of clean energy, the reduction of greenhouse gas emissions, and the protection of natural habitats.",
+          "explanations":[
+            [
+              "当今世界面临的重大挑战之一",
+              "This phrase uses a relative clause \"面临的\" to modify \"挑战\" (challenge) and the particle \"之一\" to mean \"one of\". The structure places the modifier before the noun and attaches \"之一\" to the noun phrase, yielding the meaning \"one of the major challenges facing the world today.\""
+            ],
+            [
+              "威胁着人类的未来",
+              "The particle \"着\" indicates a continuous or progressive aspect, turning the verb \"威胁\" (to threaten) into an ongoing action. In English this is rendered as a simple present tense but the nuance is that the threat is continual, not a one‑off event."
+            ],
+            [
+              "正在采取措施，推动可持续发展",
+              "Here \"正在\" marks the progressive aspect, showing that the action is in progress. The clause contains two coordinated verbs—\"采取\" (take) and \"推动\" (promote)—connected by a comma, indicating that governments are both taking measures and promoting sustainable development."
+            ],
+            [
+              "包括发展清洁能源、减少温室气体排放和保护自然栖息地",
+              "The word \"包括\" introduces a list of actions. Each item is a verb phrase: \"发展清洁能源\" (develop clean energy), \"减少温室气体排放\" (reduce greenhouse gas emissions), and \"保护自然栖息地\" (protect natural habitats). The coordination uses \"和\" before the last item, and the translation preserves this enumeration."
+            ],
+            [
+              "生物多样性丧失",
+              "In this phrase, \"生物多样性\" (biodiversity) is a noun and \"丧失\" (to lose) functions as a nominalized verb, forming the noun phrase \"biodiversity loss.\" The challenge lies in recognizing that the verb is used as a noun in Chinese, which requires rendering it as a compound noun in English."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and biodiversity loss threaten humanity's future. Governments and international organizations are taking measures to promote sustainable development, including the development of clean energy, the reduction of greenhouse gas emissions, and the protection of natural habitats.\",\n  \"explainations_list\": [\n    [\n      \"当今世界面临的重大挑战之一\",\n      \"This phrase uses a relative clause \\\"面临的\\\" to modify \\\"挑战\\\" (challenge) and the particle \\\"之一\\\" to mean \\\"one of\\\". The structure places the modifier before the noun and attaches \\\"之一\\\" to the noun phrase, yielding the meaning \\\"one of the major challenges facing the world today.\\\"\"\n    ],\n    [\n      \"威胁着人类的未来\",\n      \"The particle \\\"着\\\" indicates a continuous or progressive aspect, turning the verb \\\"威胁\\\" (to threaten) into an ongoing action. In English this is rendered as a simple present tense but the nuance is that the threat is continual, not a one‑off event.\"\n    ],\n    [\n      \"正在采取措施，推动可持续发展\",\n      \"Here \\\"正在\\\" marks the progressive aspect, showing that the action is in progress. The clause contains two coordinated verbs—\\\"采取\\\" (take) and \\\"推动\\\" (promote)—connected by a comma, indicating that governments are both taking measures and promoting sustainable development.\"\n    ],\n    [\n      \"包括发展清洁能源、减少温室气体排放和保护自然栖息地\",\n      \"The word \\\"包括\\\" introduces a list of actions. Each item is a verb phrase: \\\"发展清洁能源\\\" (develop clean energy), \\\"减少温室气体排放\\\" (reduce greenhouse gas emissions), and \\\"保护自然栖息地\\\" (protect natural habitats). The coordination uses \\\"和\\\" before the last item, and the translation preserves this enumeration.\"\n    ],\n    [\n      \"生物多样性丧失\",\n      \"In this phrase, \\\"生物多样性\\\" (biodiversity) is a noun and \\\"丧失\\\" (to lose) functions as a nominalized verb, forming the noun phrase \\\"biodiversity loss.\\\" The challenge lies in recognizing that the verb is used as a noun in Chinese, which requires rendering it as a compound noun in English.\"\n    ]\n  ]\n}",
+          "initial_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and biodiversity loss threaten humanity's future. Governments and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and protecting natural habitats.",
+          "success":true,
+          "model":"gpt-oss:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gemma3:latest_translation":"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+    "gemma3:latest_result":{
+      "input_text":"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+      "translations":{
+        "gemma3:latest":{
+          "translated_text":"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+          "explanations":[
+            [
+              "环境保护是当今世界面临的重大挑战之一。",
+              "This sentence is straightforward, but the phrase ‘是…之一’ (is…one of) requires careful consideration in translation to ensure it conveys the intended emphasis on ‘one of the major challenges.’ A literal translation might lose this nuance."
+            ],
+            [
+              "气候变化、空气污染和生物多样性丧失威胁着人类的未来。",
+              "This section presents a list of complex issues. The phrase ‘生物多样性丧失’ (biodiversity loss) is a specific ecological term that needs to be accurately translated to ensure the reader understands the concept. The use of ‘威胁着’ (threatens) highlights the serious consequences of these issues."
+            ],
+            [
+              "各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+              "This section describes actions taken. ‘推动可持续发展’ (promote sustainable development) is a common phrase that requires careful translation to ensure it accurately reflects the concept of long-term, environmentally sound development. ‘减少温室气体排放’ (reducing greenhouse gas emissions) is a technical term that needs precise rendering."
+            ],
+            [
+              "发展清洁能源、减少温室气体排放和保护自然栖息地。",
+              "This part consists of a list of actions. ‘清洁能源’ (clean energy) is a frequently used term in environmental discussions, and ‘温室气体排放’ (greenhouse gas emissions) requires accurate translation for clarity."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。\",\n  \"explainations_list\": [\n    [\"环境保护是当今世界面临的重大挑战之一。\", \"This sentence is straightforward, but the phrase ‘是…之一’ (is…one of) requires careful consideration in translation to ensure it conveys the intended emphasis on ‘one of the major challenges.’ A literal translation might lose this nuance.\"],\n    [\"气候变化、空气污染和生物多样性丧失威胁着人类的未来。\", \"This section presents a list of complex issues. The phrase ‘生物多样性丧失’ (biodiversity loss) is a specific ecological term that needs to be accurately translated to ensure the reader understands the concept. The use of ‘威胁着’ (threatens) highlights the serious consequences of these issues.\"],\n    [\"各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。\", \"This section describes actions taken. ‘推动可持续发展’ (promote sustainable development) is a common phrase that requires careful translation to ensure it accurately reflects the concept of long-term, environmentally sound development. ‘减少温室气体排放’ (reducing greenhouse gas emissions) is a technical term that needs precise rendering.\"],\n    [\"发展清洁能源、减少温室气体排放和保护自然栖息地。\", \"This part consists of a list of actions. ‘清洁能源’ (clean energy) is a frequently used term in environmental discussions, and ‘温室气体排放’ (greenhouse gas emissions) requires accurate translation for clarity.\"]\n  ]\n}",
+          "initial_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and biodiversity loss threaten humanity's future. Governments and international organizations around the world are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and protecting natural habitats.",
+          "success":true,
+          "model":"gemma3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "deepseek-r1:8b_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biological diversity threaten the future of humanity. Governments and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and preserving natural habitats.",
+    "deepseek-r1:8b_result":{
+      "input_text":"环境保护是当今世界面临的重大挑战之一。气候变化、空气污染和生物多样性丧失威胁着人类的未来。各国政府和国际组织正在采取措施，推动可持续发展，包括发展清洁能源、减少温室气体排放和保护自然栖息地。",
+      "translations":{
+        "deepseek-r1:8b":{
+          "translated_text":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biological diversity threaten the future of humanity. Governments and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and preserving natural habitats.",
+          "explanations":[
+            [
+              "环境保护是当今世界面临的重大挑战之一",
+              "This is a typical Chinese sentence structure with a subject-verb-object format. The challenge is to maintain the formal tone and accurately convey the sense of 'one of the major challenges' in English, which is handled appropriately in the translation."
+            ],
+            [
+              "气候变化、空气污染和生物多样性丧失威胁着人类的未来",
+              "This part lists three specific threats. The challenge is to translate the three parallel nouns ('climate change', 'air pollution', 'loss of biological diversity') naturally in English, and the passive construction 'threaten' appropriately."
+            ],
+            [
+              "各国政府和国际组织正在采取措施",
+              "The subject is 'governments and international organizations', and the verb phrase is 'are taking measures'. This structure clearly identifies the actors and their action."
+            ],
+            [
+              "推动可持续发展",
+              "This is a key concept. 'Sustainable development' is a widely recognized term, so it's translated directly. The challenge is to convey the driving force of this development."
+            ],
+            [
+              "发展清洁能源、减少温室气体排放和保护自然栖息地",
+              "This is a list of three parallel actions. The challenge is to translate each action accurately ('developing clean energy', 'reducing greenhouse gas emissions', 'preserving natural habitats') and maintain parallel structure in English."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biological diversity threaten the future of humanity. Governments and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and preserving natural habitats.\",\n  \"explainations_list\": [\n    [\"环境保护是当今世界面临的重大挑战之一\", \"This is a typical Chinese sentence structure with a subject-verb-object format. The challenge is to maintain the formal tone and accurately convey the sense of 'one of the major challenges' in English, which is handled appropriately in the translation.\"],\n    [\"气候变化、空气污染和生物多样性丧失威胁着人类的未来\", \"This part lists three specific threats. The challenge is to translate the three parallel nouns ('climate change', 'air pollution', 'loss of biological diversity') naturally in English, and the passive construction 'threaten' appropriately.\"],\n    [\"各国政府和国际组织正在采取措施\", \"The subject is 'governments and international organizations', and the verb phrase is 'are taking measures'. This structure clearly identifies the actors and their action.\"],\n    [\"推动可持续发展\", \"This is a key concept. 'Sustainable development' is a widely recognized term, so it's translated directly. The challenge is to convey the driving force of this development.\"],\n    [\"发展清洁能源、减少温室气体排放和保护自然栖息地\", \"This is a list of three parallel actions. The challenge is to translate each action accurately ('developing clean energy', 'reducing greenhouse gas emissions', 'preserving natural habitats') and maintain parallel structure in English.\"]\n  ]\n}",
+          "initial_translation":"Environmental protection is one of the major challenges facing the world today. Climate change, air pollution, and the loss of biological diversity threaten the future of humanity. Governments and international organizations are taking measures to promote sustainable development, including developing clean energy, reducing greenhouse gas emissions, and preserving natural habitats.",
+          "success":true,
+          "model":"deepseek-r1:8b"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "qwen3:latest_vs_gpt-oss:latest_similarity":0.9958180785,
+    "qwen3:latest_vs_gemma3:latest_similarity":0.209344402,
+    "qwen3:latest_vs_deepseek-r1:8b_similarity":0.9835109711,
+    "qwen3:latest_vs_reference_similarity":0.9975579977,
+    "gpt-oss:latest_vs_gemma3:latest_similarity":0.2152176201,
+    "gpt-oss:latest_vs_deepseek-r1:8b_similarity":0.9850481749,
+    "gpt-oss:latest_vs_reference_similarity":0.9977904558,
+    "gemma3:latest_vs_deepseek-r1:8b_similarity":0.2218586802,
+    "gemma3:latest_vs_reference_similarity":0.2109193802,
+    "deepseek-r1:8b_vs_reference_similarity":0.9864822626
+  },
+  {
+    "text_idx":3,
+    "input_text":"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+    "reference_translation":"Confucian thought emphasizes benevolence, propriety, and moral cultivation, and has had a profound impact on Chinese culture. Confucius advocated the moral principle of 'do not do to others what you do not want done to yourself,' and advocated achieving social harmony through education and self-improvement. This people-centered philosophical concept still influences the values and behavioral norms of East Asian societies today.",
+    "qwen3:latest_translation":"Confucian thought emphasizes benevolence, rituals, and moral cultivation, which has had a profound impact on Chinese culture. Confucius advocated the moral principle of 'Do not impose on others what you yourself do not desire,' promoting social harmony through education and self-cultivation. This people-centered philosophical concept continues to influence the values and behavioral norms of East Asian societies to this day.",
+    "qwen3:latest_result":{
+      "input_text":"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+      "translations":{
+        "qwen3:latest":{
+          "translated_text":"Confucian thought emphasizes benevolence, rituals, and moral cultivation, which has had a profound impact on Chinese culture. Confucius advocated the moral principle of 'Do not impose on others what you yourself do not desire,' promoting social harmony through education and self-cultivation. This people-centered philosophical concept continues to influence the values and behavioral norms of East Asian societies to this day.",
+          "explanations":[
+            [
+              "强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响",
+              "This complex sentence combines a main clause with a result clause. The structure '强调...，对中国文化产生了影响' uses a comma to link two related ideas, requiring careful coordination in English to maintain the causal relationship between Confucian ideas and their cultural impact."
+            ],
+            [
+              "己所不欲，勿施于人",
+              "This is a classical Chinese idiom expressing the ethical principle of reciprocity. The phrase is non-literal and requires a nuanced translation to preserve its moral weight while making it understandable in English. The translation captures the essence of the original saying while adapting it to natural English phrasing."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Confucian thought emphasizes benevolence, rituals, and moral cultivation, which has had a profound impact on Chinese culture. Confucius advocated the moral principle of 'Do not impose on others what you yourself do not desire,' promoting social harmony through education and self-cultivation. This people-centered philosophical concept continues to influence the values and behavioral norms of East Asian societies to this day.\",\n  \"explainations_list\": [\n    [\"强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响\", \"This complex sentence combines a main clause with a result clause. The structure '强调...，对中国文化产生了影响' uses a comma to link two related ideas, requiring careful coordination in English to maintain the causal relationship between Confucian ideas and their cultural impact.\"],\n    [\"己所不欲，勿施于人\", \"This is a classical Chinese idiom expressing the ethical principle of reciprocity. The phrase is non-literal and requires a nuanced translation to preserve its moral weight while making it understandable in English. The translation captures the essence of the original saying while adapting it to natural English phrasing.\"]\n  ]\n}",
+          "initial_translation":"Confucian thought emphasizes benevolence, rituals, and moral cultivation, having had a profound impact on Chinese culture. Confucius advocated the moral principle of 'Do not impose on others what you yourself do not desire,' promoting social harmony through education and self-cultivation. This people-centered philosophical concept continues to influence the values and behavioral norms of East Asian societies to this day.",
+          "success":true,
+          "model":"qwen3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gpt-oss:latest_translation":"Confucian thought emphasizes benevolence, propriety, and moral cultivation, profoundly shaping Chinese culture. Confucius promoted the moral principle of \"Treat others as you would not wish to be treated\" and advocated achieving social harmony through education and self‑improvement. This human‑centered philosophy continues to influence the values and behavioral norms of East Asian societies to this day.",
+    "gpt-oss:latest_result":{
+      "input_text":"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+      "translations":{
+        "gpt-oss:latest":{
+          "translated_text":"Confucian thought emphasizes benevolence, propriety, and moral cultivation, profoundly shaping Chinese culture. Confucius promoted the moral principle of \"Treat others as you would not wish to be treated\" and advocated achieving social harmony through education and self‑improvement. This human‑centered philosophy continues to influence the values and behavioral norms of East Asian societies to this day.",
+          "explanations":[
+            [
+              "对中国文化产生了深远的影响",
+              "This Chinese phrase is a prepositional clause that functions as an adverbial modifier of the subject. In English it is rendered as a participial phrase or a clause such as \"profoundly shaping Chinese culture\" to convey that the influence is continuous and far‑reaching."
+            ],
+            [
+              "己所不欲，勿施于人",
+              "A classical Chinese proverb meaning \"Do not impose on others what you do not wish for yourself.\" It is idiomatic and cannot be translated literally; the translation captures its meaning by rendering it as \"Treat others as you would not wish to be treated.\""
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Confucian thought emphasizes benevolence, propriety, and moral cultivation, profoundly shaping Chinese culture. Confucius promoted the moral principle of \\\"Treat others as you would not wish to be treated\\\" and advocated achieving social harmony through education and self‑improvement. This human‑centered philosophy continues to influence the values and behavioral norms of East Asian societies to this day.\",\n  \"explainations_list\": [\n    [\n      \"对中国文化产生了深远的影响\",\n      \"This Chinese phrase is a prepositional clause that functions as an adverbial modifier of the subject. In English it is rendered as a participial phrase or a clause such as \\\"profoundly shaping Chinese culture\\\" to convey that the influence is continuous and far‑reaching.\"\n    ],\n    [\n      \"己所不欲，勿施于人\",\n      \"A classical Chinese proverb meaning \\\"Do not impose on others what you do not wish for yourself.\\\" It is idiomatic and cannot be translated literally; the translation captures its meaning by rendering it as \\\"Treat others as you would not wish to be treated.\\\"\"\n    ]\n  ]\n}",
+          "initial_translation":"Confucianism emphasizes benevolence, ritual propriety, and moral cultivation, profoundly influencing Chinese culture. Confucius advocated the moral principle of \"Do not impose on others what you yourself do not desire\" and promoted achieving social harmony through education and self‑improvement. This human‑centered philosophical concept continues to shape the values and behavioral norms of East Asian societies today.",
+          "success":true,
+          "model":"gpt-oss:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gemma3:latest_translation":"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+    "gemma3:latest_result":{
+      "input_text":"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+      "translations":{
+        "gemma3:latest":{
+          "translated_text":"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+          "explanations":[
+            [
+              "儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。",
+              "This sentence is straightforward, describing the core tenets of Confucianism and its significant impact. The challenge here lies in accurately conveying the *depth* of the influence – ‘深远’ (shēn yuǎn) implies a profound and widespread effect, which is difficult to capture fully in English without adding extra explanatory phrases."
+            ],
+            [
+              "孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。",
+              "The phrase \"己所不欲，勿施于人\" (jǐ suǒ bù yù, wù shī yú rén) is a classic Confucian saying. It’s a concise ethical principle, but translating it directly is tricky. The literal translation ‘Do not do to others what you would not want done to yourself’ is accurate but sounds somewhat awkward in English. The challenge is finding an equivalent idiom that conveys the same moral lesson in a natural-sounding way.  The use of a direct quote, even with a translation, is common in this type of text."
+            ],
+            [
+              "这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+              "This sentence describes the philosophical concept as ‘humanistic,’ which is a good translation of ‘以人为本’. The challenge here is in the overall flow and the use of ‘still influences’ – ‘仍然’ (réng yī) emphasizes the continued relevance and impact, highlighting that this philosophy remains a cornerstone of East Asian societies."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\\\"己所不欲，勿施于人\\\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。\",\n  \"explainations_list\": [\n    [\"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。\", \"This sentence is straightforward, describing the core tenets of Confucianism and its significant impact. The challenge here lies in accurately conveying the *depth* of the influence – ‘深远’ (shēn yuǎn) implies a profound and widespread effect, which is difficult to capture fully in English without adding extra explanatory phrases.\"],\n    [\"孔子提倡\\\"己所不欲，勿施于人\\\"的道德原则，主张通过教育和自我完善来实现社会和谐。\", \"The phrase \\\"己所不欲，勿施于人\\\" (jǐ suǒ bù yù, wù shī yú rén) is a classic Confucian saying. It’s a concise ethical principle, but translating it directly is tricky. The literal translation ‘Do not do to others what you would not want done to yourself’ is accurate but sounds somewhat awkward in English. The challenge is finding an equivalent idiom that conveys the same moral lesson in a natural-sounding way.  The use of a direct quote, even with a translation, is common in this type of text.\"],\n    [\"这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。\", \"This sentence describes the philosophical concept as ‘humanistic,’ which is a good translation of ‘以人为本’. The challenge here is in the overall flow and the use of ‘still influences’ – ‘仍然’ (réng yī) emphasizes the continued relevance and impact, highlighting that this philosophy remains a cornerstone of East Asian societies.\"]\n  ]\n}",
+          "initial_translation":"Confucianism emphasizes benevolence, righteousness, and moral cultivation, which has had a profound influence on Chinese culture. Confucius advocated the ethical principle of \"Do not do to others what you would not want done to yourself,\" and advocated achieving social harmony through education and self-improvement. This humanistic philosophical concept still influences the values and behavioral norms of East Asian societies today.",
+          "success":true,
+          "model":"gemma3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "deepseek-r1:8b_translation":"Confucian thought emphasizes benevolence, etiquette, and moral cultivation, having a profound influence on Chinese culture. Confucius advocated the moral principle of 'Do not do to others as you would not have them do to you,' and promoted achieving social harmony through education and self-improvement. This people-centric philosophy continues to influence the values and behavioral norms of East Asian societies.",
+    "deepseek-r1:8b_result":{
+      "input_text":"儒家思想强调仁爱、礼仪和道德修养，对中国文化产生了深远的影响。孔子提倡\"己所不欲，勿施于人\"的道德原则，主张通过教育和自我完善来实现社会和谐。这种以人为本的哲学理念至今仍然影响着东亚社会的价值观和行为准则。",
+      "translations":{
+        "deepseek-r1:8b":{
+          "translated_text":"Confucian thought emphasizes benevolence, etiquette, and moral cultivation, having a profound influence on Chinese culture. Confucius advocated the moral principle of 'Do not do to others as you would not have them do to you,' and promoted achieving social harmony through education and self-improvement. This people-centric philosophy continues to influence the values and behavioral norms of East Asian societies.",
+          "explanations":[
+
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Confucian thought emphasizes benevolence, etiquette, and moral cultivation, having a profound influence on Chinese culture. Confucius advocated the moral principle of 'Do not do to others as you would not have them do to you,' and promoted achieving social harmony through education and self-improvement. This people-centric philosophy continues to influence the values and behavioral norms of East Asian societies.\",\n  \"explanations_list\": [\n    [\"孔子提倡\\\"己所不欲，勿施于人\\\"的道德原则\", \"This phrase is an idiom known as the 'Golden Rule'. It's challenging to translate directly because it's a concise expression of a universal ethical principle. The initial translation uses the English equivalent, which is appropriate as it conveys the same meaning without literal translation. The explanation helps the reader understand that this principle is about treating others as one would like to be treated.\"],\n    [\"这种以人为本的哲学理念\", \"'以人为本' is a challenging phrase that is often translated as 'people-centric' or 'human-centered'. It's not just about individualism but a holistic approach to society, placing human needs and welfare at the center. The initial translation captures this essence with 'people-centric philosophy', which is accurate and understandable in the English context.\"],\n    [\"提倡\\\"己所不欲，勿施于人\\\"的道德原则\", \"This clause contains the previously mentioned idiom. The challenge is maintaining the concise yet profound meaning while ensuring grammatical correctness in English. The initial translation correctly structures this clause, maintaining the integrity of the Golden Rule.\"]\n  ]\n}",
+          "initial_translation":"Confucian thought emphasizes benevolence, etiquette, and moral cultivation, exerting a profound influence on Chinese culture. Confucius advocated the moral principle of 'Do not unto others as you would not have done unto you,' and promoted achieving social harmony through education and self-improvement. This philosophy centered on humanity continues to influence the values and behavioral norms of East Asian societies.",
+          "success":true,
+          "model":"deepseek-r1:8b"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "qwen3:latest_vs_gpt-oss:latest_similarity":0.9632495642,
+    "qwen3:latest_vs_gemma3:latest_similarity":0.3917894065,
+    "qwen3:latest_vs_deepseek-r1:8b_similarity":0.9642549753,
+    "qwen3:latest_vs_reference_similarity":0.9817675352,
+    "gpt-oss:latest_vs_gemma3:latest_similarity":0.4049933553,
+    "gpt-oss:latest_vs_deepseek-r1:8b_similarity":0.9518617988,
+    "gpt-oss:latest_vs_reference_similarity":0.9621634483,
+    "gemma3:latest_vs_deepseek-r1:8b_similarity":0.3960160017,
+    "gemma3:latest_vs_reference_similarity":0.3894256055,
+    "deepseek-r1:8b_vs_reference_similarity":0.9755327106
+  },
+  {
+    "text_idx":4,
+    "input_text":"现代城市生活节奏快、压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。",
+    "reference_translation":"Modern urban life is fast-paced and stressful, and many young people face challenges in balancing work and life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have changed people's consumption habits and lifestyles. At the same time, urban planners are working hard to create more livable environments, increase green spaces, and improve public transportation systems.",
+    "qwen3:latest_translation":"Modern urban life is fast-paced and stressful, with many young people struggling to balance work and personal life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have transformed consumption habits and lifestyles. Meanwhile, urban planners are working to enhance livability by expanding green spaces and upgrading public transportation systems.",
+    "qwen3:latest_result":{
+      "input_text":"现代城市生活节奏快、压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。",
+      "translations":{
+        "qwen3:latest":{
+          "translated_text":"Modern urban life is fast-paced and stressful, with many young people struggling to balance work and personal life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have transformed consumption habits and lifestyles. Meanwhile, urban planners are working to enhance livability by expanding green spaces and upgrading public transportation systems.",
+          "explanations":[
+            [
+              "节奏快、压力大",
+              "This compound adjective structure (快\/压力大) creates a parallelism that emphasizes the dual nature of urban life. The challenge lies in conveying both speed and stress as simultaneous characteristics, which is naturally expressed through 'fast-paced and stressful' in English."
+            ],
+            [
+              "工作和生活平衡的挑战",
+              "This noun phrase contains a nested structure where '平衡' (balance) functions as the core noun, with '工作和生活' (work and personal life) acting as the object of the balancing action. The phrase is idiomatic in English as 'work-life balance,' requiring careful handling to preserve its metaphorical meaning."
+            ],
+            [
+              "共享经济、外卖服务和移动支付等新兴科技",
+              "This list of examples under a category requires clear categorization. The challenge is distinguishing between specific services (外卖服务, mobile payments) and broader technological categories (共享经济). The translation effectively groups them under 'emerging technologies' while maintaining clarity."
+            ],
+            [
+              "努力创造更宜居的环境",
+              "This complex verb phrase combines the effort ('努力') with the purpose ('创造') of achieving a goal ('宜居的环境'). The challenge is conveying the simultaneous aspects of effort and intention, which is naturally expressed through 'working to enhance livability' in English."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Modern urban life is fast-paced and stressful, with many young people struggling to balance work and personal life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have transformed consumption habits and lifestyles. Meanwhile, urban planners are working to enhance livability by expanding green spaces and upgrading public transportation systems.\",\n  \"explainations_list\": [\n    [\"节奏快、压力大\", \"This compound adjective structure (快\/压力大) creates a parallelism that emphasizes the dual nature of urban life. The challenge lies in conveying both speed and stress as simultaneous characteristics, which is naturally expressed through 'fast-paced and stressful' in English.\"],\n    [\"工作和生活平衡的挑战\", \"This noun phrase contains a nested structure where '平衡' (balance) functions as the core noun, with '工作和生活' (work and personal life) acting as the object of the balancing action. The phrase is idiomatic in English as 'work-life balance,' requiring careful handling to preserve its metaphorical meaning.\"],\n    [\"共享经济、外卖服务和移动支付等新兴科技\", \"This list of examples under a category requires clear categorization. The challenge is distinguishing between specific services (外卖服务, mobile payments) and broader technological categories (共享经济). The translation effectively groups them under 'emerging technologies' while maintaining clarity.\"],\n    [\"努力创造更宜居的环境\", \"This complex verb phrase combines the effort ('努力') with the purpose ('创造') of achieving a goal ('宜居的环境'). The challenge is conveying the simultaneous aspects of effort and intention, which is naturally expressed through 'working to enhance livability' in English.\"]\n  ]\n}",
+          "initial_translation":"Modern urban life is fast-paced and stressful, with many young people facing challenges in achieving work-life balance. Emerging technologies such as the shared economy, food delivery services, and mobile payments have changed people's consumption habits and lifestyles. At the same time, urban planners are striving to create more livable environments by increasing green spaces and improving the public transportation system.",
+          "success":true,
+          "model":"qwen3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gpt-oss:latest_translation":"Modern urban life moves at a fast pace and carries high levels of stress, and many young people are confronted with the challenge of balancing work and life. The sharing economy, food delivery services, mobile payments, and other emerging technologies have altered people's consumption habits and lifestyles. At the same time, urban planners are working to create more livable environments, expand green spaces, and improve public transportation systems.",
+    "gpt-oss:latest_result":{
+      "input_text":"现代城市生活节奏快、压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。",
+      "translations":{
+        "gpt-oss:latest":{
+          "translated_text":"Modern urban life moves at a fast pace and carries high levels of stress, and many young people are confronted with the challenge of balancing work and life. The sharing economy, food delivery services, mobile payments, and other emerging technologies have altered people's consumption habits and lifestyles. At the same time, urban planners are working to create more livable environments, expand green spaces, and improve public transportation systems.",
+          "explanations":[
+            [
+              "面临着工作和生活平衡的挑战",
+              "The verb \"面临着\" uses the continuous aspect marker \"着\", indicating an ongoing situation. The following noun phrase \"工作和生活平衡\" means \"work‑life balance\". The particle \"的\" nominalizes the phrase, turning it into \"the challenge of work‑life balance\". In English we render this as \"confronted with the challenge of balancing work and life\"."
+            ],
+            [
+              "共享经济、外卖服务和移动支付等新兴科技",
+              "The list \"共享经济、外卖服务和移动支付\" is followed by the particle \"等\", meaning \"etc.\" or \"and others\". The attributive phrase \"新兴科技\" (emerging technologies) modifies all items in the list. Thus we translate it as \"the sharing economy, food delivery services, mobile payments, and other emerging technologies\"."
+            ],
+            [
+              "更宜居的环境",
+              "\"更\" is an intensifier meaning \"more\"; \"宜居\" is an adjective meaning \"livable\". The structure \"更宜居的环境\" literally means \"a more livable environment\". We render it as \"more livable environments\"."
+            ],
+            [
+              "节奏快、压力大",
+              "This coordinate phrase uses adjectives \"快\" (fast) and \"大\" (big) to describe \"节奏\" (pace) and \"压力\" (stress) respectively, with no explicit copula. The commas link the two clauses. In English we express it as \"moves at a fast pace and carries high levels of stress\"."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Modern urban life moves at a fast pace and carries high levels of stress, and many young people are confronted with the challenge of balancing work and life. The sharing economy, food delivery services, mobile payments, and other emerging technologies have altered people's consumption habits and lifestyles. At the same time, urban planners are working to create more livable environments, expand green spaces, and improve public transportation systems.\",\n  \"explainations_list\": [\n    [\n      \"面临着工作和生活平衡的挑战\",\n      \"The verb \\\"面临着\\\" uses the continuous aspect marker \\\"着\\\", indicating an ongoing situation. The following noun phrase \\\"工作和生活平衡\\\" means \\\"work‑life balance\\\". The particle \\\"的\\\" nominalizes the phrase, turning it into \\\"the challenge of work‑life balance\\\". In English we render this as \\\"confronted with the challenge of balancing work and life\\\".\"\n    ],\n    [\n      \"共享经济、外卖服务和移动支付等新兴科技\",\n      \"The list \\\"共享经济、外卖服务和移动支付\\\" is followed by the particle \\\"等\\\", meaning \\\"etc.\\\" or \\\"and others\\\". The attributive phrase \\\"新兴科技\\\" (emerging technologies) modifies all items in the list. Thus we translate it as \\\"the sharing economy, food delivery services, mobile payments, and other emerging technologies\\\".\"\n    ],\n    [\n      \"更宜居的环境\",\n      \"\\\"更\\\" is an intensifier meaning \\\"more\\\"; \\\"宜居\\\" is an adjective meaning \\\"livable\\\". The structure \\\"更宜居的环境\\\" literally means \\\"a more livable environment\\\". We render it as \\\"more livable environments\\\".\"\n    ],\n    [\n      \"节奏快、压力大\",\n      \"This coordinate phrase uses adjectives \\\"快\\\" (fast) and \\\"大\\\" (big) to describe \\\"节奏\\\" (pace) and \\\"压力\\\" (stress) respectively, with no explicit copula. The commas link the two clauses. In English we express it as \\\"moves at a fast pace and carries high levels of stress\\\".\"\n    ]\n  ]\n}",
+          "initial_translation":"Modern urban life is fast-paced and stressful, and many young people face challenges balancing work and life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have changed people's consumption habits and lifestyles. At the same time, urban planners are working to create more livable environments, increase green space, and improve public transportation systems.",
+          "success":true,
+          "model":"gpt-oss:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "gemma3:latest_translation":"现代城市生活节奏快，压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。",
+    "gemma3:latest_result":{
+      "input_text":"现代城市生活节奏快、压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。",
+      "translations":{
+        "gemma3:latest":{
+          "translated_text":"现代城市生活节奏快，压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。",
+          "explanations":[
+            [
+              "节奏快，压力大",
+              "This phrase describes the characteristic of ‘modern urban life’ using a compound structure. The use of ‘节奏快’ (fast pace) and ‘压力大’ (high pressure) together conveys a sense of intensity and urgency, which is a culturally specific way to describe the experience of urban living. It’s not simply stating ‘fast’ and ‘stressful’ but creating a combined effect."
+            ],
+            [
+              "共享经济、外卖服务和移动支付等新兴科技",
+              "The phrase ‘新兴科技’ (emerging technologies) is a common and relatively straightforward translation. However, the specific examples – ‘共享经济’ (sharing economy), ‘外卖服务’ (food delivery services), and ‘移动支付’ (mobile payments) – represent a specific and rapidly evolving sector of the economy. The translation aims to capture the breadth of this sector, reflecting the significant technological changes impacting daily life."
+            ],
+            [
+              "创造更宜居的环境",
+              "The phrase ‘创造更宜居的环境’ (create more livable environments) is a relatively complex construction. ‘宜居’ (livable) is a compound adjective meaning ‘suitable for living’. The verb ‘创造’ (create) implies a deliberate effort to improve the environment. This reflects the role of urban planners in actively shaping the city for residents’ comfort and well-being."
+            ],
+            [
+              "增加绿地空间",
+              "‘增加绿地空间’ (increase green spaces) is a standard translation, but it highlights a specific urban planning goal: expanding areas of greenery within the city. ‘绿地’ (green space) is a key concept in sustainable urban development."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"现代城市生活节奏快，压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。\",\n  \"explainations_list\": [\n    [\"节奏快，压力大\", \"This phrase describes the characteristic of ‘modern urban life’ using a compound structure. The use of ‘节奏快’ (fast pace) and ‘压力大’ (high pressure) together conveys a sense of intensity and urgency, which is a culturally specific way to describe the experience of urban living. It’s not simply stating ‘fast’ and ‘stressful’ but creating a combined effect.\"],\n    [\"共享经济、外卖服务和移动支付等新兴科技\", \"The phrase ‘新兴科技’ (emerging technologies) is a common and relatively straightforward translation. However, the specific examples – ‘共享经济’ (sharing economy), ‘外卖服务’ (food delivery services), and ‘移动支付’ (mobile payments) – represent a specific and rapidly evolving sector of the economy. The translation aims to capture the breadth of this sector, reflecting the significant technological changes impacting daily life.\"],\n    [\"创造更宜居的环境\", \"The phrase ‘创造更宜居的环境’ (create more livable environments) is a relatively complex construction. ‘宜居’ (livable) is a compound adjective meaning ‘suitable for living’. The verb ‘创造’ (create) implies a deliberate effort to improve the environment. This reflects the role of urban planners in actively shaping the city for residents’ comfort and well-being.\"],\n    [\"增加绿地空间\", \"‘增加绿地空间’ (increase green spaces) is a standard translation, but it highlights a specific urban planning goal: expanding areas of greenery within the city. ‘绿地’ (green space) is a key concept in sustainable urban development.\"]\n  ]\n}",
+          "initial_translation":"Modern urban life is fast-paced and stressful, and many young people face challenges in balancing work and life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have changed people's consumption habits and lifestyles. At the same time, urban planners are working hard to create more livable environments, increase green spaces, and improve public transportation systems.",
+          "success":true,
+          "model":"gemma3:latest"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "deepseek-r1:8b_translation":"Urban life is fast-paced and stressful, with many young people facing challenges in balancing work and personal life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have transformed people's consumption habits and lifestyles. Meanwhile, urban planners are striving to create more livable environments by increasing green spaces and improving public transportation systems.",
+    "deepseek-r1:8b_result":{
+      "input_text":"现代城市生活节奏快、压力大，许多年轻人面临着工作和生活平衡的挑战。共享经济、外卖服务和移动支付等新兴科技改变了人们的消费习惯和生活方式。同时，城市规划者也在努力创造更宜居的环境，增加绿地空间，改善公共交通系统。",
+      "translations":{
+        "deepseek-r1:8b":{
+          "translated_text":"Urban life is fast-paced and stressful, with many young people facing challenges in balancing work and personal life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have transformed people's consumption habits and lifestyles. Meanwhile, urban planners are striving to create more livable environments by increasing green spaces and improving public transportation systems.",
+          "explanations":[
+            [
+              "生活节奏快、压力大",
+              "This is an example of a parallel structure in Chinese, where two adjectives (fast-paced and stressful) are used to describe urban life. The challenge in translating this is to maintain the parallel structure while ensuring the translation sounds natural in English. The explanation captures the intended meaning by using two adjectives in the translation."
+            ],
+            [
+              "消费习惯和生活方式",
+              "This is a common Chinese collocation where two nouns (consumption habits and lifestyles) are linked directly. The challenge here is that in English, we often use 'people's' to modify these nouns to indicate possession or influence. The translation uses 'people's consumption habits and lifestyles' to capture this meaning accurately."
+            ],
+            [
+              "共享经济、外卖服务和移动支付等新兴科技",
+              "This is a complex noun phrase with multiple examples (sharing economy, food delivery services, and mobile payments) listing emerging technologies. The challenge is to translate each term accurately while maintaining the structure and meaning. The translation provides clear and direct equivalents for each term."
+            ],
+            [
+              "创造更宜居的环境",
+              "This is a phrase that expresses an intention or goal ('宜居的环境' meaning livable environment). The challenge is to convey the idea of creating a better living environment. The translation captures this by using 'create more livable environments', emphasizing the goal of improvement."
+            ],
+            [
+              "增加绿地空间，改善公共交通系统",
+              "This is a pair of parallel actions (increasing green spaces and improving public transportation systems) taken by urban planners. The challenge is to translate these actions accurately while maintaining the parallel structure. The translation uses 'increasing green spaces and improving public transportation systems' to capture both actions clearly."
+            ]
+          ],
+          "raw_response":"{\n  \"translated_text\": \"Urban life is fast-paced and stressful, with many young people facing challenges in balancing work and personal life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have transformed people's consumption habits and lifestyles. Meanwhile, urban planners are striving to create more livable environments by increasing green spaces and improving public transportation systems.\",\n  \"explainations_list\": [\n    [\"生活节奏快、压力大\", \"This is an example of a parallel structure in Chinese, where two adjectives (fast-paced and stressful) are used to describe urban life. The challenge in translating this is to maintain the parallel structure while ensuring the translation sounds natural in English. The explanation captures the intended meaning by using two adjectives in the translation.\"],\n    [\"消费习惯和生活方式\", \"This is a common Chinese collocation where two nouns (consumption habits and lifestyles) are linked directly. The challenge here is that in English, we often use 'people's' to modify these nouns to indicate possession or influence. The translation uses 'people's consumption habits and lifestyles' to capture this meaning accurately.\"],\n    [\"共享经济、外卖服务和移动支付等新兴科技\", \"This is a complex noun phrase with multiple examples (sharing economy, food delivery services, and mobile payments) listing emerging technologies. The challenge is to translate each term accurately while maintaining the structure and meaning. The translation provides clear and direct equivalents for each term.\"],\n    [\"创造更宜居的环境\", \"This is a phrase that expresses an intention or goal ('宜居的环境' meaning livable environment). The challenge is to convey the idea of creating a better living environment. The translation captures this by using 'create more livable environments', emphasizing the goal of improvement.\"],\n    [\"增加绿地空间，改善公共交通系统\", \"This is a pair of parallel actions (increasing green spaces and improving public transportation systems) taken by urban planners. The challenge is to translate these actions accurately while maintaining the parallel structure. The translation uses 'increasing green spaces and improving public transportation systems' to capture both actions clearly.\"]\n  ]\n}",
+          "initial_translation":"Modern urban life is fast-paced and stressful, with many young people facing challenges in balancing work and personal life. Emerging technologies such as the sharing economy, food delivery services, and mobile payments have transformed people's consumption habits and lifestyles. Meanwhile, urban planners are striving to create more livable environments by increasing green spaces and improving public transportation systems.",
+          "success":true,
+          "model":"deepseek-r1:8b"
+        }
+      },
+      "dictionary_entries":null
+    },
+    "qwen3:latest_vs_gpt-oss:latest_similarity":0.9500696659,
+    "qwen3:latest_vs_gemma3:latest_similarity":0.1771171391,
+    "qwen3:latest_vs_deepseek-r1:8b_similarity":0.9798790216,
+    "qwen3:latest_vs_reference_similarity":0.9658969045,
+    "gpt-oss:latest_vs_gemma3:latest_similarity":0.2078121901,
+    "gpt-oss:latest_vs_deepseek-r1:8b_similarity":0.9534772635,
+    "gpt-oss:latest_vs_reference_similarity":0.9708811045,
+    "gemma3:latest_vs_deepseek-r1:8b_similarity":0.1910540313,
+    "gemma3:latest_vs_reference_similarity":0.2060129046,
+    "deepseek-r1:8b_vs_reference_similarity":0.9726385474
+  }
+]
