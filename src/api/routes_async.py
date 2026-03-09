@@ -2,7 +2,7 @@
 Async API routes for long-running translation, question generation, and linguistic analysis.
 """
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from typing import List
 
 from .models import (
@@ -16,6 +16,8 @@ from .models import (
 from .async_jobs import AsyncJobManager
 from .service import TranslationService
 from .schemas import PromptingSchemaRegistry
+from .auth import get_current_user
+from .db_models import User
 
 router = APIRouter()
 
@@ -29,7 +31,9 @@ def get_job_manager():
 
 
 @router.post("/translate/async", response_model=AsyncJobResponse)
-async def translate_async(request: AsyncTranslationJob):
+async def translate_async(
+    request: AsyncTranslationJob, _user: User = Depends(get_current_user)
+):
     """
     Submit a translation job asynchronously.
 
@@ -56,6 +60,7 @@ async def translate_async(request: AsyncTranslationJob):
             text=request.text,
             job_type="translation",
             schema_name=request.schema_name,
+            model_override=request.model_override,
         )
 
         return AsyncJobResponse(
@@ -69,7 +74,7 @@ async def translate_async(request: AsyncTranslationJob):
 
 
 @router.get("/translate/status/{job_id}", response_model=AsyncJobStatusResponse)
-async def get_translation_status(job_id: str):
+async def get_translation_status(job_id: str, _user: User = Depends(get_current_user)):
     """
     Poll the status of an async translation job.
 
@@ -103,7 +108,9 @@ async def get_translation_status(job_id: str):
 
 @router.post("/batch/translate/async")
 async def batch_translate_async(
-    requests: List[AsyncTranslationJob], schema_name: str = Query(default="translate")
+    requests: List[AsyncTranslationJob],
+    schema_name: str = Query(default="translate"),
+    _user: User = Depends(get_current_user),
 ):
     """
     Submit multiple translation jobs asynchronously.
@@ -144,7 +151,9 @@ async def batch_translate_async(
 
 
 @router.post("/questions/async")
-async def generate_questions_async(request: AsyncQuestionsJob):
+async def generate_questions_async(
+    request: AsyncQuestionsJob, _user: User = Depends(get_current_user)
+):
     """
     Submit a question generation job asynchronously.
 
@@ -181,7 +190,7 @@ async def generate_questions_async(request: AsyncQuestionsJob):
 
 
 @router.get("/questions/status/{job_id}")
-async def get_questions_status(job_id: str):
+async def get_questions_status(job_id: str, _user: User = Depends(get_current_user)):
     """
     Poll the status of an async question generation job.
 
@@ -214,7 +223,9 @@ async def get_questions_status(job_id: str):
 
 
 @router.post("/linguistic/async", response_model=AsyncJobResponse)
-async def analyze_linguistic_async(request: AsyncLinguisticJob):
+async def analyze_linguistic_async(
+    request: AsyncLinguisticJob, _user: User = Depends(get_current_user)
+):
     """
     Submit a linguistic analysis job asynchronously.
 
@@ -258,7 +269,7 @@ async def analyze_linguistic_async(request: AsyncLinguisticJob):
 
 
 @router.get("/linguistic/status/{job_id}", response_model=AsyncJobStatusResponse)
-async def get_linguistic_status(job_id: str):
+async def get_linguistic_status(job_id: str, _user: User = Depends(get_current_user)):
     """
     Poll the status of an async linguistic analysis job.
 

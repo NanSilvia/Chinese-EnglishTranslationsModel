@@ -90,6 +90,7 @@ class OllamaClient:
         stage_label: str = "General",
         temperature: float = 0.7,
         num_ctx: int = 16384,
+        model: Optional[str] = None,
     ) -> Optional[str]:
         """Call Ollama API with extended timeout for large prompts.
 
@@ -99,13 +100,17 @@ class OllamaClient:
             stage_label: Label for the processing stage
             temperature: Controls randomness (0.0-1.0, lower = more focused)
             num_ctx: Context window size in tokens
+            model: Override the default model (e.g., 'qwen3:latest', 'gemma3:27b-it-fp16')
         """
         if not self.check_connection():
             return None
 
+        # Use provided model or fall back to default
+        model_to_use = model if model else OLLAMA_MODEL
+
         if OLLAMA_STREAMING:
             return self._call_ollama_streaming(
-                prompt, schema_name, stage_label, temperature, num_ctx
+                prompt, schema_name, stage_label, temperature, num_ctx, model_to_use
             )
 
         # Determine token limits based on schema
@@ -119,7 +124,7 @@ class OllamaClient:
             response = requests.post(
                 f"{OLLAMA_API_BASE}/api/generate",
                 json={
-                    "model": OLLAMA_MODEL,
+                    "model": model_to_use,
                     "prompt": prompt,
                     "stream": False,
                     "think": True,
@@ -159,6 +164,7 @@ class OllamaClient:
         stage_label: str = "General",
         temperature: float = 0.7,
         num_ctx: int = 16384,
+        model: Optional[str] = None,
     ) -> Optional[str]:
         """Call Ollama API using streaming mode for better handling of long responses.
 
@@ -168,9 +174,13 @@ class OllamaClient:
             stage_label: Label for the processing stage
             temperature: Controls randomness (0.0-1.0, lower = more focused)
             num_ctx: Context window size in tokens
+            model: Override the default model
         """
         if not self.check_connection():
             return None
+
+        # Use provided model or fall back to default
+        model_to_use = model if model else OLLAMA_MODEL
 
         # Determine token limits based on schema
         num_predict = 16384  # Default increased from 8192
@@ -183,7 +193,7 @@ class OllamaClient:
             response = requests.post(
                 f"{OLLAMA_API_BASE}/api/generate",
                 json={
-                    "model": OLLAMA_MODEL,
+                    "model": model_to_use,
                     "prompt": prompt,
                     "stream": True,
                     "options": {

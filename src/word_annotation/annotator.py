@@ -466,6 +466,42 @@ class MandarinAnnotator:
 
         return words
 
+    def _annotate_segment(
+        self,
+        cjk_chars: List[str],
+        phonetic_type: str,
+        as_words: bool,
+    ) -> List[Dict[str, Any]]:
+        """
+        Annotate a single CJK segment independently.
+        Each segment is sent to the API separately so the segmenter
+        never creates words that span across non-CJK gaps in the original text.
+        """
+        try:
+            data = self.get_definitions(cjk_chars, phonetic_type)
+            if data:
+                segment_text = "".join(cjk_chars)
+                if as_words:
+                    return self.create_word_annotations(segment_text, cjk_chars, data)
+                else:
+                    return self.format_annotations(data, segment_text, cjk_chars)
+            return []
+        except Exception:
+            # Fallback: return each character as unannotated
+            return [
+                {
+                    "word": char,
+                    "pinyin": "",
+                    "pinyin_list": [],
+                    "definitions": [],
+                    "definitions_full": [],
+                    "character_count": 1,
+                    "characters": [char],
+                    "details": [],
+                }
+                for char in cjk_chars
+            ]
+
     def annotate(
         self,
         text: str,
@@ -485,43 +521,47 @@ class MandarinAnnotator:
         Returns:
             List of annotations if no callback provided
         """
-        cjk_chars = self.extract_cjk_characters(text)
+        segments = self.find_cjk_segments(text)
 
-        if not cjk_chars:
+        # Process each CJK segment independently so the API never creates
+        # words that span across non-CJK boundaries (punctuation, spaces, etc.).
+        cjk_segments = []
+        for is_cjk, start, end in segments:
+            if not is_cjk:
+                continue
+            segment_text = text[start:end]
+            segment_chars = list(segment_text)
+            if segment_chars:
+                cjk_segments.append(segment_chars)
+
+        if not cjk_segments:
             if callback:
                 callback(None, [])
             return []
 
-        # If callback is provided, use async mode
         if callback:
 
-            def on_definitions(err, data):
-                if err:
-                    callback(err, None)
-                else:
-                    if as_words:
-                        annotations = self.create_word_annotations(
-                            text, cjk_chars, data
-                        )
-                    else:
-                        annotations = self.format_annotations(data, text, cjk_chars)
-                    callback(None, annotations)
+            def process_segments():
+                all_annotations = []
+                for seg_chars in cjk_segments:
+                    all_annotations.extend(
+                        self._annotate_segment(seg_chars, phonetic_type, as_words)
+                    )
+                callback(None, all_annotations)
 
-            self.get_definitions(cjk_chars, phonetic_type, on_definitions)
+            try:
+                process_segments()
+            except Exception as e:
+                callback(str(e), None)
             return None
 
-        # Otherwise, use synchronous mode
-        try:
-            data = self.get_definitions(cjk_chars, phonetic_type)
-            if data:
-                if as_words:
-                    annotations = self.create_word_annotations(text, cjk_chars, data)
-                else:
-                    annotations = self.format_annotations(data, text, cjk_chars)
-                return annotations
-            return []
-        except Exception as e:
-            raise e
+        # Synchronous mode
+        all_annotations = []
+        for seg_chars in cjk_segments:
+            all_annotations.extend(
+                self._annotate_segment(seg_chars, phonetic_type, as_words)
+            )
+        return all_annotations
 
 
 # Example usage

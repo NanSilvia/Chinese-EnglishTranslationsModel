@@ -361,12 +361,12 @@ class OpenLibraryClient:
         Returns:
             Dictionary with difficulty metrics including HSK level
         """
-        from .ollama_client import OllamaClient
+        from .llama_cpp_client import LlamaCppClient
         import json
 
-        ollama = OllamaClient()
+        llm = LlamaCppClient()
 
-        if language == "chi" and ollama.check_connection():
+        if language == "chi" and llm.check_connection():
             # Use AI to determine HSK level
             prompt = f"""Analyze the following Chinese text and determine its HSK level (1-6).
 
@@ -388,13 +388,20 @@ Rules:
 
 Respond ONLY with valid JSON, no other text."""
 
-            response = ollama.call_ollama(
-                prompt, schema_name="translate", stage_label="HSK Analysis"
+            messages = [
+                {
+                    "role": "system",
+                    "content": "You are a Chinese language difficulty analyzer. Respond only with valid JSON.",
+                },
+                {"role": "user", "content": prompt},
+            ]
+            response = llm.call_chat(
+                messages, schema_name="translate", stage_label="HSK Analysis"
             )
 
             if response:
-                cleaned = ollama.clean_thinking(response)
-                parsed, success = ollama.safe_json_parse(cleaned)
+                cleaned = llm.clean_thinking(response)
+                parsed, success = llm.safe_json_parse(cleaned)
 
                 if success and "hsk_level" in parsed:
                     return {
@@ -536,12 +543,12 @@ Respond ONLY with valid JSON, no other text."""
         Returns:
             Dictionary with difficulty metrics including HSK level
         """
-        from .ollama_client import OllamaClient
+        from .llama_cpp_client import LlamaCppClient
         import json
 
-        ollama = OllamaClient()
+        llm = LlamaCppClient()
 
-        if language == "chi" and ollama.check_connection():
+        if language == "chi" and llm.check_connection():
             # Use AI to determine HSK level
             prompt = f"""Analyze the following Chinese text and determine its HSK level (1-6).
 
@@ -563,13 +570,20 @@ Rules:
 
 Respond ONLY with valid JSON, no other text."""
 
-            response = ollama.call_ollama(
-                prompt, schema_name="translate", stage_label="HSK Analysis"
+            messages = [
+                {
+                    "role": "system",
+                    "content": "You are a Chinese language difficulty analyzer. Respond only with valid JSON.",
+                },
+                {"role": "user", "content": prompt},
+            ]
+            response = llm.call_chat(
+                messages, schema_name="translate", stage_label="HSK Analysis"
             )
 
             if response:
-                cleaned = ollama.clean_thinking(response)
-                parsed, success = ollama.safe_json_parse(cleaned)
+                cleaned = llm.clean_thinking(response)
+                parsed, success = llm.safe_json_parse(cleaned)
 
                 if success and "hsk_level" in parsed:
                     chinese_chars = [c for c in text if "\u4e00" <= c <= "\u9fff"]

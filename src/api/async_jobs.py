@@ -23,6 +23,7 @@ class JobRecord:
     job_type: str  # "translation", "questions", or "linguistic"
     text: str
     schema_name: Optional[str] = None  # Used for translations
+    model_override: Optional[str] = None  # Override default model for translations
     question_count: Optional[int] = None  # Used for questions
     full_text: Optional[str] = None  # Used for linguistic analysis
     selected_text: Optional[str] = None  # Used for linguistic analysis
@@ -48,6 +49,7 @@ class AsyncJobManager:
         text: str = None,
         job_type: str = "translation",
         schema_name: Optional[str] = None,
+        model_override: Optional[str] = None,
         question_count: Optional[int] = None,
         full_text: Optional[str] = None,
         selected_text: Optional[str] = None,
@@ -59,6 +61,7 @@ class AsyncJobManager:
             text: Text to process (for translations and questions)
             job_type: "translation", "questions", or "linguistic"
             schema_name: Schema to use (for translations)
+            model_override: Override default model (for translations)
             question_count: Number of questions to generate (for questions)
             full_text: Complete text for context (for linguistic)
             selected_text: Text to analyze (for linguistic)
@@ -73,6 +76,7 @@ class AsyncJobManager:
             job_type=job_type,
             text=text or "",
             schema_name=schema_name or "translate",
+            model_override=model_override,
             question_count=question_count or 5,
             full_text=full_text,
             selected_text=selected_text,
@@ -122,12 +126,21 @@ class AsyncJobManager:
             loop = asyncio.get_event_loop()
 
             if job.job_type == "translation":
-                translation_result = await loop.run_in_executor(
-                    None,
-                    self.translation_service.translate,
-                    job.text,
-                    job.schema_name,
-                )
+                # Pass model_override if provided
+                if job.model_override:
+                    translation_result = await loop.run_in_executor(
+                        None,
+                        lambda: self.translation_service.translate(
+                            job.text, job.schema_name, model=job.model_override
+                        ),
+                    )
+                else:
+                    translation_result = await loop.run_in_executor(
+                        None,
+                        self.translation_service.translate,
+                        job.text,
+                        job.schema_name,
+                    )
 
                 # Check if translation was successful
                 translation_data = translation_result.get("translation", {})

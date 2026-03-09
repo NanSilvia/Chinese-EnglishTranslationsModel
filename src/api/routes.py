@@ -2,7 +2,7 @@
 Main API routes for translation and general endpoints.
 """
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from typing import List
 import uuid
 
@@ -17,7 +17,9 @@ from .models import (
 )
 from .service import TranslationService
 from .schemas import PromptingSchemaRegistry
-from .config import DEFAULT_AGENT
+from .config import DEFAULT_AGENT, RATE_LIMIT_HEAVY
+from .auth import get_current_user
+from .db_models import User
 
 router = APIRouter()
 
@@ -33,16 +35,16 @@ def get_translation_service():
 async def health_check():
     """Check API health and active agent configuration."""
     translation_service = get_translation_service()
-    ollama_available = (
-        translation_service._check_ollama_connection()
-        if DEFAULT_AGENT == "qwen"
+    llm_available = (
+        translation_service._check_llm_connection()
+        if DEFAULT_AGENT == "local"
         else None
     )
 
     return HealthCheckResponse(
         status="healthy",
         message=f"API is running with {DEFAULT_AGENT.upper()} agent",
-        ollama_connected=ollama_available,
+        llm_connected=llm_available,
         models_available=[DEFAULT_AGENT],
     )
 
@@ -54,7 +56,9 @@ async def list_schemas():
 
 
 @router.post("/translate", response_model=TranslationResponse)
-async def translate(request: TranslationRequest):
+async def translate(
+    request: TranslationRequest, _user: User = Depends(get_current_user)
+):
     """
     Translate text using the configured default agent.
 
@@ -100,7 +104,9 @@ async def translate(request: TranslationRequest):
 
 @router.post("/batch/translate")
 async def batch_translate(
-    texts: List[str], schema_name: str = Query(default="translate")
+    texts: List[str],
+    schema_name: str = Query(default="translate"),
+    _user: User = Depends(get_current_user),
 ):
     """
     Translate multiple texts at once using the configured default agent.
@@ -175,7 +181,9 @@ async def root():
 
 
 @router.post("/text/summarize", response_model=SummarizationResponse)
-async def summarize_text_endpoint(request: SummarizationRequest):
+async def summarize_text_endpoint(
+    request: SummarizationRequest, _user: User = Depends(get_current_user)
+):
     """
     Summarize text in the specified language.
 
@@ -240,7 +248,9 @@ async def summarize_text_endpoint(request: SummarizationRequest):
 
 
 @router.post("/word/analyze", response_model=WordAnalysisResponse)
-async def analyze_word_endpoint(request: WordAnalysisRequest):
+async def analyze_word_endpoint(
+    request: WordAnalysisRequest, _user: User = Depends(get_current_user)
+):
     """
     Analyze a word and get synonyms, antonyms, and alternative wordings.
 

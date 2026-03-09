@@ -2,7 +2,7 @@
 Book search and research routes using OpenLibrary API.
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from typing import List
 
 from .models import (
@@ -20,6 +20,8 @@ from .models import (
 )
 from .openlibrary_client import OpenLibraryClient
 from .service import TranslationService
+from .auth import get_current_user
+from .db_models import User
 
 router = APIRouter(prefix="/books", tags=["books"])
 
@@ -39,7 +41,9 @@ def get_translation_service():
 
 
 @router.post("/search", response_model=BookSearchResponse)
-async def search_books(request: BookSearchRequest):
+async def search_books(
+    request: BookSearchRequest, _user: User = Depends(get_current_user)
+):
     """
     Search for books using OpenLibrary API.
 
@@ -106,7 +110,9 @@ async def search_books(request: BookSearchRequest):
 
 
 @router.post("/recommend", response_model=BookRecommendationResponse)
-async def recommend_books(request: BookRecommendationRequest):
+async def recommend_books(
+    request: BookRecommendationRequest, _user: User = Depends(get_current_user)
+):
     """
     Analyze text and recommend relevant books.
 
@@ -148,7 +154,9 @@ async def recommend_books(request: BookRecommendationRequest):
 
 
 @router.post("/similar-difficulty", response_model=TextDifficultyResponse)
-async def find_similar_difficulty_texts(request: TextDifficultyRequest):
+async def find_similar_difficulty_texts(
+    request: TextDifficultyRequest, _user: User = Depends(get_current_user)
+):
     """
     Find texts of similar difficulty level to the provided text.
 
@@ -217,7 +225,9 @@ async def find_similar_difficulty_texts(request: TextDifficultyRequest):
 
 
 @router.post("/research", response_model=TextResearchResponse)
-async def research_text(request: TextResearchRequest):
+async def research_text(
+    request: TextResearchRequest, _user: User = Depends(get_current_user)
+):
     """
     Translate Chinese text and find related books for further reading.
 
@@ -289,7 +299,9 @@ async def research_text(request: TextResearchRequest):
 
 
 @router.get("/subject/{subject}")
-async def get_books_by_subject(subject: str, limit: int = 10):
+async def get_books_by_subject(
+    subject: str, limit: int = 10, _user: User = Depends(get_current_user)
+):
     """
     Get books on a specific subject/topic.
 
@@ -315,7 +327,9 @@ async def get_books_by_subject(subject: str, limit: int = 10):
 
 
 @router.get("/author/{author}")
-async def get_books_by_author(author: str, limit: int = 10):
+async def get_books_by_author(
+    author: str, limit: int = 10, _user: User = Depends(get_current_user)
+):
     """
     Get books by a specific author.
 
@@ -341,7 +355,7 @@ async def get_books_by_author(author: str, limit: int = 10):
 
 
 @router.get("/work/{work_id}")
-async def get_work_details(work_id: str):
+async def get_work_details(work_id: str, _user: User = Depends(get_current_user)):
     """
     Get detailed information about a specific work.
 
@@ -368,7 +382,7 @@ async def get_work_details(work_id: str):
 
 
 @router.get("/author-info/{author_id}")
-async def get_author_info(author_id: str):
+async def get_author_info(author_id: str, _user: User = Depends(get_current_user)):
     """
     Get detailed information about an author.
 

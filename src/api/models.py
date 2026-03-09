@@ -79,7 +79,7 @@ class HealthCheckResponse(BaseModel):
 
     status: str
     message: str
-    ollama_connected: Optional[bool] = None
+    llm_connected: Optional[bool] = None
     models_available: Optional[List[str]] = None
 
 
@@ -98,6 +98,10 @@ class AsyncTranslationJob(BaseModel):
     schema_name: str = Field(
         default="translate",
         description="Prompting schema to use (e.g., 'default', 'simple', 'detailed')",
+    )
+    model_override: Optional[str] = Field(
+        default=None,
+        description="Override the default model (e.g., 'qwen3:latest', 'gemma3:27b-it-fp16')",
     )
 
 

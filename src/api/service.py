@@ -1,5 +1,5 @@
 """
-Translation service module with Qwen/Ollama integration.
+Translation service module with llama.cpp integration.
 Handles model inference and response processing with dictionary enrichment.
 """
 
@@ -8,7 +8,7 @@ from typing import Optional, Dict, Any, Tuple
 
 from .config import DEFAULT_AGENT
 from .schemas import PromptingSchemaRegistry
-from .ollama_client import OllamaClient
+from .llama_cpp_client import LlamaCppClient
 from .dictionary import lookup_dictionary_entries, format_dictionary_prompt
 
 
@@ -19,7 +19,7 @@ TRANSLATION_ONLY_SYSTEM_PROMPT = """You are an expert translator. You will recei
 }
 Do not include any other keys, explanations, or commentary. Ensure the JSON is valid and double-quoted."""
 
-TRANSLATION_ONLY_FALLBACK_PROMPT = """You are an expert translator. Translate the user's message into fluent English. Respond with the translated sentence only—no JSON, commentary, or metadata."""
+TRANSLATION_ONLY_FALLBACK_PROMPT = """You are an expert translator. Translate the user's message into fluent English. Respond with the translated sentence only-no JSON, commentary, or metadata."""
 
 
 class TranslationService:
@@ -27,11 +27,11 @@ class TranslationService:
 
     def __init__(self):
         self.default_agent = DEFAULT_AGENT
-        self.ollama_client = OllamaClient()
+        self.llm_client = LlamaCppClient()
 
-    def _check_ollama_connection(self) -> bool:
-        """Check if Ollama is available."""
-        return self.ollama_client.check_connection()
+    def _check_llm_connection(self) -> bool:
+        """Check if llama.cpp server is available."""
+        return self.llm_client.check_connection()
 
     def _extract_translated_text(self, response_text: str) -> str:
         """Extract translated_text field from JSON response."""
@@ -46,8 +46,10 @@ class TranslationService:
             pass
         return response_text.strip()
 
-    def _generate_initial_translation(self, text: str) -> Tuple[str, str]:
-        """Stage 1: Generate initial translation using Ollama with dictionary hints."""
+    def _generate_initial_translation(
+        self, text: str, model: Optional[str] = None
+    ) -> Tuple[str, str]:
+        """Stage 1: Generate initial translation using llama.cpp with dictionary hints."""
         dictionary_entries = lookup_dictionary_entries(text)
         glossary_text = format_dictionary_prompt(dictionary_entries)
 
@@ -68,9 +70,14 @@ class TranslationService:
         ]
 
         for idx, attempt in enumerate(attempts):
-            prompt = f"System: {attempt['system_prompt']}\n\nUser: {attempt['user_payload']}\n\nAssistant:"
-            raw = self.ollama_client.call_ollama(prompt, stage_label=attempt["label"])
-            clean = self.ollama_client.clean_thinking(raw) if raw else ""
+            messages = [
+                {"role": "system", "content": attempt["system_prompt"]},
+                {"role": "user", "content": attempt["user_payload"]},
+            ]
+            raw = self.llm_client.call_chat(
+                messages, stage_label=attempt["label"], model=model
+            )
+            clean = self.llm_client.clean_thinking(raw) if raw else ""
             candidate = self._extract_translated_text(clean)
 
             if candidate:
@@ -97,10 +104,10 @@ class TranslationService:
         Returns:
             Dictionary with summary and key points
         """
-        if not self._check_ollama_connection():
+        if not self._check_llm_connection():
             return {
                 "success": False,
-                "error": "Ollama not available",
+                "error": "llama.cpp not available",
                 "summary": "",
                 "key_points": [],
             }
@@ -166,18 +173,24 @@ First, analyze the main content and structure of the text within <think> tags, t
 Respond ONLY with valid JSON."""
 
         try:
-            # Use lower temperature and higher context for more accurate, grounded summaries
-            response = self.ollama_client.call_ollama(
-                prompt,
+            # Use lower temperature for more accurate, grounded summaries
+            messages = [
+                {
+                    "role": "system",
+                    "content": "You are a helpful text summarization assistant. Respond only with valid JSON.",
+                },
+                {"role": "user", "content": prompt},
+            ]
+            response = self.llm_client.call_chat(
+                messages,
                 schema_name="translate",
                 stage_label="Text Summarization",
                 temperature=0.3,
-                num_ctx=32768,
             )
 
             if response:
-                cleaned = self.ollama_client.clean_thinking(response)
-                parsed, success = self.ollama_client.safe_json_parse(cleaned)
+                cleaned = self.llm_client.clean_thinking(response)
+                parsed, success = self.llm_client.safe_json_parse(cleaned)
 
                 if success:
                     return {
@@ -224,10 +237,10 @@ Respond ONLY with valid JSON."""
         Returns:
             Dictionary with word analysis
         """
-        if not self._check_ollama_connection():
+        if not self._check_llm_connection():
             return {
                 "success": False,
-                "error": "Ollama not available",
+                "error": "llama.cpp not available",
                 "synonyms": [],
                 "antonyms": [],
                 "alternative_wordings": [],
@@ -261,13 +274,20 @@ Provide a comprehensive analysis as JSON with these fields:
 Consider the context if provided. Respond ONLY with valid JSON."""
 
         try:
-            response = self.ollama_client.call_ollama(
-                prompt, schema_name="translate", stage_label="Word Analysis"
+            messages = [
+                {
+                    "role": "system",
+                    "content": "You are a helpful word analysis assistant. Respond only with valid JSON.",
+                },
+                {"role": "user", "content": prompt},
+            ]
+            response = self.llm_client.call_chat(
+                messages, schema_name="translate", stage_label="Word Analysis"
             )
 
             if response:
-                cleaned = self.ollama_client.clean_thinking(response)
-                parsed, success = self.ollama_client.safe_json_parse(cleaned)
+                cleaned = self.llm_client.clean_thinking(response)
+                parsed, success = self.llm_client.safe_json_parse(cleaned)
 
                 if success:
                     result = {
@@ -308,18 +328,25 @@ Consider the context if provided. Respond ONLY with valid JSON."""
             }
 
     def translate_with_qwen(
-        self, text: str, schema_name: str = "translate"
+        self, text: str, schema_name: str = "translate", model: Optional[str] = None
     ) -> Dict[str, Any]:
         """
-        Translate using Qwen via Ollama with two-stage refinement pipeline.
+        Translate using llama.cpp with two-stage refinement pipeline.
         Stage 1: Generate initial translation with dictionary hints
         Stage 2: Refine translation and add explanations (using selected schema)
+
+        Args:
+            text: Text to translate
+            schema_name: Schema to use for translation
+            model: Override default model
         """
-        if not self._check_ollama_connection():
+        model_name = model if model else "qwen"
+
+        if not self._check_llm_connection():
             return {
                 "success": False,
-                "model": "qwen",
-                "error": "Qwen/Ollama not available",
+                "model": model_name,
+                "error": "llama.cpp not available",
             }
 
         try:
@@ -329,88 +356,103 @@ Consider the context if provided. Respond ONLY with valid JSON."""
                 system_prompt = schema.get_system_prompt()
                 user_payload = schema.get_user_payload(text, None)
 
-                final_prompt = (
-                    f"System: {system_prompt}\n\nUser: {user_payload}\n\nAssistant:"
-                )
-                final_response = self.ollama_client.call_ollama(
-                    final_prompt,
+                messages = [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_payload},
+                ]
+                final_response = self.llm_client.call_chat(
+                    messages,
                     schema_name=schema_name,
                     stage_label="Detailed Analysis",
+                    model=model,
                 )
 
                 if not final_response:
                     return {
                         "success": False,
-                        "model": "qwen",
-                        "error": "No response from Ollama",
+                        "model": model_name,
+                        "error": "No response from llama.cpp",
                     }
 
-                final_response = self.ollama_client.clean_thinking(final_response)
+                final_response = self.llm_client.clean_thinking(final_response)
                 parsed_result = schema.parse_response(final_response)
                 parsed_result["success"] = True
-                parsed_result["model"] = "qwen"
+                parsed_result["model"] = model_name
                 return parsed_result
 
-            initial_translation, _ = self._generate_initial_translation(text)
+            initial_translation, _ = self._generate_initial_translation(
+                text, model=model
+            )
             initial_translation = initial_translation.strip()
 
             system_prompt = schema.get_system_prompt()
             user_payload = schema.get_user_payload(text, initial_translation)
 
-            final_prompt = (
-                f"System: {system_prompt}\n\nUser: {user_payload}\n\nAssistant:"
-            )
-            final_response = self.ollama_client.call_ollama(
-                final_prompt, schema_name=schema_name, stage_label="Refinement Stage"
+            messages = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_payload},
+            ]
+            final_response = self.llm_client.call_chat(
+                messages,
+                schema_name=schema_name,
+                stage_label="Refinement Stage",
+                model=model,
             )
 
             if not final_response:
                 return {
                     "success": False,
-                    "model": "qwen",
-                    "error": "No response from Ollama",
+                    "model": model_name,
+                    "error": "No response from llama.cpp",
                 }
 
-            final_response = self.ollama_client.clean_thinking(final_response)
+            final_response = self.llm_client.clean_thinking(final_response)
             parsed_result = schema.parse_response(final_response)
             parsed_result["initial_translation"] = initial_translation
             parsed_result["success"] = True
-            parsed_result["model"] = "qwen"
+            parsed_result["model"] = model_name
 
             return parsed_result
 
         except Exception as e:
-            return {"success": False, "model": "qwen", "error": str(e)}
+            return {"success": False, "model": model_name, "error": str(e)}
 
     def translate(
-        self, text: str, schema_name: str = "translate", models: Optional[list] = None
+        self,
+        text: str,
+        schema_name: str = "translate",
+        models: Optional[list] = None,
+        model: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
-        Translate text using Qwen via Ollama with dictionary enrichment.
+        Translate text using llama.cpp with dictionary enrichment.
 
         Args:
             text: Input text to translate
             schema_name: Prompting schema to use
-            models: Deprecated - ignored (only Qwen is supported)
+            models: Deprecated - ignored
+            model: Override default model
 
         Returns:
-            Dictionary with translation from Qwen
+            Dictionary with translation result
         """
+        model_name = model if model else "qwen"
+
         result = {
             "input_text": text,
             "schema_used": schema_name,
-            "model": "qwen",
+            "model": model_name,
         }
 
-        result["translation"] = self.translate_with_qwen(text, schema_name)
+        result["translation"] = self.translate_with_qwen(text, schema_name, model=model)
         return result
 
     def generate_questions(self, text: str, question_count: int = 5) -> Dict[str, Any]:
         """Generate HSK-style multiple-choice reading comprehension questions."""
-        if not self._check_ollama_connection():
+        if not self._check_llm_connection():
             return {
                 "success": False,
-                "error": "Qwen/Ollama not available",
+                "error": "llama.cpp not available",
             }
 
         try:
@@ -421,18 +463,21 @@ Consider the context if provided. Respond ONLY with valid JSON."""
             system_prompt = schema.get_system_prompt()
             user_payload = schema.get_user_payload(text, question_count)
 
-            prompt = f"System: {system_prompt}\n\nUser: {user_payload}\n\nAssistant:"
-            response_text = self.ollama_client.call_ollama(
-                prompt, schema_name="questions", stage_label="Question Generation"
+            messages = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_payload},
+            ]
+            response_text = self.llm_client.call_chat(
+                messages, schema_name="questions", stage_label="Question Generation"
             )
 
             if not response_text:
                 return {
                     "success": False,
-                    "error": "No response from Ollama",
+                    "error": "No response from llama.cpp",
                 }
 
-            response_text = self.ollama_client.clean_thinking(response_text)
+            response_text = self.llm_client.clean_thinking(response_text)
             parsed_result = schema.parse_response(response_text)
             parsed_result["success"] = True
             parsed_result["question_count"] = question_count
@@ -453,10 +498,10 @@ Consider the context if provided. Respond ONLY with valid JSON."""
         Returns:
             Dictionary with linguistic analysis results
         """
-        if not self._check_ollama_connection():
+        if not self._check_llm_connection():
             return {
                 "success": False,
-                "error": "Qwen/Ollama not available",
+                "error": "llama.cpp not available",
             }
 
         try:
@@ -465,18 +510,21 @@ Consider the context if provided. Respond ONLY with valid JSON."""
             system_prompt = schema.get_system_prompt()
             user_payload = schema.get_user_payload(full_text, selected_text)
 
-            prompt = f"System: {system_prompt}\n\nUser: {user_payload}\n\nAssistant:"
-            response_text = self.ollama_client.call_ollama(
-                prompt, schema_name="linguistic", stage_label="Linguistic Analysis"
+            messages = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_payload},
+            ]
+            response_text = self.llm_client.call_chat(
+                messages, schema_name="linguistic", stage_label="Linguistic Analysis"
             )
 
             if not response_text:
                 return {
                     "success": False,
-                    "error": "No response from Ollama",
+                    "error": "No response from llama.cpp",
                 }
 
-            response_text = self.ollama_client.clean_thinking(response_text)
+            response_text = self.llm_client.clean_thinking(response_text)
             parsed_result = schema.parse_response(response_text)
 
             # Check if parse_response failed (indicated by presence of 'error' key)

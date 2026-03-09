@@ -67,6 +67,7 @@ class BasePromptingSchema(ABC):
         # If all else fails, return empty dict with failure status
         return {}, False
 
+
 class TranslateSchema(BasePromptingSchema):
     """
     Default two-stage translation schema with dictionary integration.
@@ -143,6 +144,7 @@ Important rules:
             "explanations": parsed.get("explainations_list", []),
             "raw_response": response,
         }
+
 
 class SimpleSchema(BasePromptingSchema):
     """
@@ -241,6 +243,7 @@ Respond with ONLY valid JSON. No other text before or after."""
             "raw_response": response,
         }
 
+
 class QuestionSchema(BasePromptingSchema):
     """Question generation schema based on input text and desired number of output questions."""
 
@@ -330,6 +333,7 @@ Return ONLY a JSON object in the following structure, with no extra text:
             "questions_list": parsed.get("questions_list", []),
         }
 
+
 class LinguisticSchema(BasePromptingSchema):
     """
     Linguistic analysis schema for selected text of a bigger text
@@ -389,7 +393,7 @@ Where:
 - Use standard grammatical terminology (SVO, topic-comment, 把-construction, 是...的 structure, resultative complement, etc.)
 - Note structural differences between Chinese and English when relevant
 - If the analyzed text contains idioms (成语) or set phrases, explain both their structure as a unit and their literal composition
-- The full_text is for contextual understanding only — do not analyze or extract patterns from portions outside the analyzed text
+- The full_text is for contextual understanding only - do not analyze or extract patterns from portions outside the analyzed text
 """
 
     def get_user_payload(self, full_text: str, selected_text: str) -> str:
@@ -422,6 +426,7 @@ Where:
             "raw_response": response,
         }
 
+
 class PromptingSchemaRegistry:
     """Registry for managing available prompting schemas."""
 
@@ -449,6 +454,7 @@ class PromptingSchemaRegistry:
         if schema is None:
             schema = cls.get("translate")
         return schema
+
 
 # Initialize registry with built-in schemas
 PromptingSchemaRegistry.register(TranslateSchema())
